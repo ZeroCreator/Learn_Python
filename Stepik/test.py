@@ -61,3 +61,8 @@ for i in range(0, len(l), 2):
     n += (l[i]*l[i+1])
 with open('dataset1.txt', 'w') as (e):
     e.write(n)
+
+
+print('Гвидо', 'Ван', 'Россум', sep='*', end='-')
+print('Основатель', 'Питона', sep='_', end='!')
+
