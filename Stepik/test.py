@@ -65,4 +65,6 @@ with open('dataset1.txt', 'w') as (e):
 
 print('Гвидо', 'Ван', 'Россум', sep='*', end='-')
 print('Основатель', 'Питона', sep='_', end='!')
-
+print()
+a = 'Я стану крутым программистом!'
+print(a, a, a, sep='\n')
