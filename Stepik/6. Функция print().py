@@ -13,7 +13,7 @@ print(4, 5, sep="&")
 print('Форматирование')
 rubles = 10
 kop = 90
-print('У меня сть %s рублей %s копеек'%(rubles, kop))
+print('У меня eсть %s рублей %s копеек'%(rubles, kop))
 
 #
 print('Гвидо', 'Ван', 'Россум', sep='*', end='-')
