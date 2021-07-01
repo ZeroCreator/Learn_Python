@@ -69,7 +69,7 @@ print(int(int(input()) ** -1 * int(input())))
 n, k = int(input()), int(input())
 print(k // n)
 
-print(int(1 / int(input())  * int(input()) // 1))
+print(int(1 / int(input()) * int(input()) // 1))
 
 # У вас есть N рублей и вы хотите купить максимальное количество кроссовок по цене R рублей. Сколько кроссовок
 # Вы можете себе купить? На вход программе поступают 2 положительных целых числа N, R
@@ -84,7 +84,7 @@ n = int(input())
 print(n + 2 - n%2)
 
 n = int(input())
-print ((n+2)//2*2)
+print((n+2)//2*2)
 
 n = int(input())
 print(2*(n//2+1))
