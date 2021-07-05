@@ -152,3 +152,51 @@ print(input().replace(' ', ','))
 a = input()
 a=a.split(' ')
 print(','.join(a))
+
+# Программа должна делать следующее: в заданной строке, которая состоит из прописных и строчных латинских букв, она:
+# - удаляет все гласные буквы,
+# - перед каждой согласной буквой ставит символ ".",
+# - все прописные согласные буквы заменяет на строчные.
+# Гласными буквами считаются буквы "A", "O", "Y", "E", "U", "I", а согласными — все остальные.
+# На вход программе подается ровно одна строка, она должна вернуть результат в виде одной строки,
+# получившейся после обработки.
+# Sample Input:Codeforces - Sample Output:.c.d.f.r.c.s
+s = input().lower()
+s = s.replace('a', '').replace('o', '').replace('y', '').replace('e', '').replace('u', '').replace('i', '')
+b = list(s)
+c = '.'.join(b)
+f = len(s)*2
+d = c.rjust(int(f), '.')
+print(d)
+
+print((input().lower().replace("a", '').replace("o", '').replace("y", '').replace("e", '').replace("u", '').replace("i", '').replace('','.'))[:-1])
+
+s = input()
+s = s.lower()
+s = s.replace('a', '')
+s = s.replace('o', '')
+s = s.replace('y', '')
+s = s.replace('e', '')
+s = s.replace('u', '')
+s = s.replace('i', '')
+s = s.replace('', '.')
+s = s.rstrip('.')
+print(s)
+
+print(*("." + i for i in input().lower() if i not in "aoyeui"), sep="")
+
+print('.' + '.'.join(input().lower().replace('a','').replace('o','').replace('y','').replace('e','').replace('u','').replace('i','')))
+
+s = input().lower()
+s = s.replace('a', '')
+s = s.replace('o', '')
+s = s.replace('y', '')
+s = s.replace('e', '')
+s = s.replace('u', '')
+s = s.replace('i', '')
+s='.'.join(s)
+print('.'+s)
+
+s=input()
+s=s.lower().replace('a','').replace('o','').replace('y','').replace('e','').replace('u','').replace('i','')
+print('.'+'.'.join(s))
