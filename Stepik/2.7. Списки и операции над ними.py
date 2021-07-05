@@ -27,12 +27,13 @@ print(len(b))
 print('2. Сцепление списков (сложение):')
 a = a + [4]
 print(a)
+print([1, 2, 3] + [4, 5, 6])
 
 a = ['hi'] + a
 print(a)
 
 #
-print(' 3. Дублирование списков (умножение):')
+print('3. Дублирование списков (умножение):')
 print([0]*5)
 
 #
@@ -62,5 +63,25 @@ print([100, 54] > [34, 543, 654, 43])
 print('9.Найти среднее арифметическое списка:')
 print(sum(marks)/len(marks))
 
+#
+print('функцию для считывания строки через запятую:')
+#a = eval(input())
+#print(a)
+c = list(map(int, input().split()))
+print(c)
+c = list(map(float, input().split()))
+
+#
+print('Tasks')
+# Допишите программу ниже, чтобы она вывела через пробел в одной строке значения
+# самого маленького и самого большого элементов списка my_list
+print(min(my_list), max(my_list))
+
+my_list.sort()
+print(my_list[0],my_list[-1])
+
+# Программа получает на вход список из целых чисел. Ваша задача найти среднее арифметическое введенного списка чисел
+list_numbers = list(map(int, input().split()))
+print(sum(list_numbers)/len(list_numbers))
 
 
