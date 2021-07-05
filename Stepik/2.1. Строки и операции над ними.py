@@ -65,12 +65,12 @@ print('Tasks')
 print('Я стану крутым программистом!\n'*3)
 
 a = 'Я стану крутым программистом!'
-print(a,a,a, sep = '\n')
+print(a, a, a, sep='\n')
 
-n='Я стану крутым программистом!'
+n = 'Я стану крутым программистом!'
 print((n+'\n')*3)
 
-d='Я стану крутым программистом!\n'
+d = 'Я стану крутым программистом!\n'
 print(d*3)
 
 
@@ -81,8 +81,8 @@ print(input(), input(), sep='\n')
 print(input())
 print(input())
 
-a=input()
-b=input()
-print(a,b, sep='\n')
+a = input()
+b = input()
+print(a, b, sep='\n')
 
 print(input()+"\n" + input())
