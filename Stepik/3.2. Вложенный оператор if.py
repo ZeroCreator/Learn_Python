@@ -38,4 +38,33 @@ else:
 print('Какой координате четверти принадлежит данная точка:')
 x = int(input())
 y = int(input())
+if x > 0:
+    # 1 or 4
+    if y > 0:
+        print(1)
+    else:
+        print(4)
+else:
+    # 2 or 3
+    if y > 0:
+        print(2)
+    else:
+        print(3)
+
+#
+print('Какой будет остаток при делении на 4:')
+a = int(input())
+if a % 4 == 0:
+    print(0)
+else:
+    if a % 4 == 1:
+        print(1)
+    else:
+        if a % 4 == 2:
+            print(2)
+        else:
+            print(3)
+
+
+
 
