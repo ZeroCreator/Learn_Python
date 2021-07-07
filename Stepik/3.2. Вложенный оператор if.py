@@ -158,7 +158,7 @@ else:
         print(n)
 
 a = int(input())
-print(a if a%2!=0 and a>1 else int(a/2))
+print(a if a % 2 != 0 and a > 1 else int(a/2))
 
 
 
