@@ -160,6 +160,59 @@ else:
 a = int(input())
 print(a if a % 2 != 0 and a > 1 else int(a/2))
 
+# В отделе работают 3 сотрудника, которые получают заработную плату в рублях. Требуется определить: на сколько
+# зарплата самого высокооплачиваемого из них отличается от самого низкооплачиваемого.
+# Входные данные: Размеры зарплат всех сотрудников вводятся в одну строку через пробел.
+# Каждая заработная плата – это натуральное число, не превышающее 105. И гарантируется ,что все зарплаты различны
+# Выходные данные: Необходимо вывести одно целое число — разницу между максимальной и минимальной зарплатой.
+a, b, c = map(int, input().split())
+if a > b and a > c:
+    if b > c:
+        print(a - c)
+    else:
+        print(a - b)
+if b > a and b > c:
+        if a > c:
+            print(b - c)
+        else:
+            print(b - a)
+if c > a and c > b:
+    if b > a:
+        print(c - a)
+    else:
+        print(c - b)
+
+a, b, c = map(int,input().split())
+if a > b:
+    if a > c:
+        if b > c:
+            print(a - c)
+        else:
+            print(a - b)
+if b > a:
+    if b > c:
+        if a > c:
+            print(b - c)
+        else:
+            print(b - a)
+if c > a:
+    if c > b:
+        if b > a:
+            print(c - a)
+        else:
+            print(c - b)
+
+
+a, b, c = map(int, input().split())
+if a < b:
+    a, b = b, a
+if b < c:
+    b, c = c, b
+if a < b:
+    a, b = b, a
+print(a - c)
+
+
 
 
 
