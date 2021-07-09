@@ -20,7 +20,7 @@ file.close()
 #
 #file.readline().strip() - метод .strip() убирает служебные символы при чтении строки(\n,пробелы, табуляции)
 #можно использовать , для того. что бы убрать пустые линии -
-s=file.readlines().strip()
+s = file.readlines().strip()
 #
 print('Откат чтения до нужного места - метод - .seak()')
 file = open('test.txt', encoding='utf-8')
@@ -93,8 +93,8 @@ def file_read(file_name):
 
 def file_read(file_name):
     with open(file_name, "r", encoding = "utf-8") as f:
-        print(f.read()
-        f.close()
+        print(f.read())
+    f.close()
 
 # Напишите функцию create_file_with_numbers, которая принимает на вход одно целое положительное число - n.
 # Функция должна создать файл с название "range_<number>.txt" и наполнить его целыми числами от 1 до n включительно,
