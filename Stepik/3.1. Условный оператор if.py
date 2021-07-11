@@ -228,11 +228,11 @@ a = input()
 a = ((6 - len(a)) * '0') + a
 print('YES' if int(a[0]) + int(a[1]) + int(a[2]) == int(a[-3]) + int(a[-2]) + int(a[-1]) else 'NO')
 
-n=input()
-n=n.rjust(6,'0')
-x=int(n[0])+int(n[1])+int(n[2])
-y=int(n[3])+int(n[4])+int(n[5])
-if x==y:
+n = input()
+n = n.rjust(6,'0')
+x = int(n[0])+int(n[1])+int(n[2])
+y = nt(n[3])+int(n[4])+int(n[5])
+if x == y:
     print('YES')
 else:
     print('NO')
@@ -246,5 +246,33 @@ else:
 z = [int(i) for i in input().zfill(6)]
 print('YES' if sum(z[:3]) == sum(z[3:]) else 'NO')
 
+# Напишите программу, которая на вход получает координаты двух клеток шахматной доски и выводит сообщение о том,
+# являются ли эти клетки одного цвета. Столбцы на шахматной доске обозначаются английскими строчными буквами.
+s = ' abcdefgh'
+coord_1 = input()
+coord_2 = input()
+letter = coord_1[0]
+letter_2 = coord_2[0]
+column1 = s.find(letter)
+column2 = s.find(letter_2)
+row1 = int(coord_1[1])
+row2 = int(coord_2[1])
+if (row1 + column1) % 2 == 0 and (row2 + column2) % 2 == 0 or (row1 + column1) % 2 != 0 and (row2 + column2) % 2 != 0:
+    print('YES')
+else:
+    print('NO')
+
+
+coord_1, coord_2 = input(), input()
+letter = coord_1[0]
+letter_2 = coord_2[0]
+column1 = s.find(letter)
+column2 = s.find(letter_2)
+row1 = int(coord_1[1])
+row2 = int(coord_2[1])
+if (row1 + column1) % 2 == (row2 + column2) % 2:
+    print('YES')
+else:
+    print('NO')
 
 
