@@ -291,11 +291,11 @@ elif a[0]*a[1]+2*a[3] == a[0]*a[2]+2*a[4]:
 a, b = input().lower(), input().lower()
 if a[-1] == b[0]:
     print('Good')
-elif a[-1] =='ь':
+elif a[-1] == 'ь':
     if a[-2] == b[0]:
         print('Good')
 else:
     print('Bad')
 
-a,b=input().lower().replace('ь',''),input().lower()
-print('Good' if a[-1]==b[0] else 'Bad')
+a, b = input().lower().replace('ь', ''), input().lower()
+print('Good' if a[-1] == b[0] else 'Bad')
