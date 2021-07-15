@@ -135,7 +135,7 @@ a = input().lower()
 print(*[i for i in input().split() if a in i.lower()], sep='\n')
 
 a = input()
-c = nput().split()
+c = input().split()
 for i in c:
     if a in i:
         print(i)
@@ -295,6 +295,6 @@ cb = 0                          # счетчик начальный для ци�
 bl = len(b)                     # длинна списка b
 
 for i in range(bl):
-    cb += nt(b[i])               # проходим по списку b и суммируем все цифры
+    cb += int(b[i])               # проходим по списку b и суммируем все цифры
 
 print(bl, cb)
