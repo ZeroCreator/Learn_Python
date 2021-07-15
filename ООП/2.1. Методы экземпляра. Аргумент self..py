@@ -27,3 +27,29 @@ class Cat:
 
     def show_breed(instance):
         print(f'my breed is {instance.breed}')
+
+walt = Cat()
+print(walt.show_breed())        # 'my breed is pers'
+
+walt.breed = 'siam'
+print(walt.show_breed())        # 'my breed is siam'
+
+bob = Cat()
+print(bob.show_breed())         # 'my breed is pers'
+
+#
+class Cat:
+    breed = 'pers'
+    def hello(*args):
+        print("Hello world from kitty", args)
+
+    def show_breed(instance):
+        print(f'my breed is {instance.breed}')
+
+    def show_name(instance):
+        print(f'my name is {instance.name}')
+
+mary = Cat()
+mary.name = 'MARY'
+print(mary.show_name())         # 'my name is MARY'
+

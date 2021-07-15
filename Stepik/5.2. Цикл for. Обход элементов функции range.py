@@ -96,3 +96,36 @@ for i in range(n):
     print('current s:', s)          # Сумма по итерациям
 print('total', s)                   # Итоговая сумма
 print('sred arif =', s/n)           # Среднее арифметическое
+
+# Напишите программу, которая считывает два натуральных числа a и b (гарантируется, что a<b), после чего для всех
+# чисел от a до b включительно выводит:
+# “Fizz”, если это число делится на 3;
+# “Buzz”, если это число делится на 5;
+# “FizzBuzz”, если выполнены оба предыдущих условия;
+# само это число в остальных случаях.
+a = int(input())
+b = int(input())
+for i in range(a, b+1):
+    if i % 3 == 0 and i % 5 == 0:
+        print('FizzBuzz')
+    elif i % 3 == 0:
+        print('Fizz')
+    elif i % 5 == 0:
+        print('Buzz')
+    else:
+        print(i)
+
+#
+for n in range(int(input()), int(input()) + 1):
+    print('Fizz' * (not n % 3) + 'Buzz' * (not n % 5) or n)
+
+#
+for n in range(int(input()), int(input()) + 1):
+    if not n % 3 and not n % 5:
+        print('FizzBuzz')
+    elif not n % 3:
+        print('Fizz')
+    elif not n % 5:
+        print('Buzz')
+    else:
+        print(n)
