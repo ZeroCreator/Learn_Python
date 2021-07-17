@@ -156,4 +156,128 @@ for i in range(1, n+1):
     a.append(str(i))
     print(*a)
 
+# Постулат Бертрана
+# Постулат Бертрана (теорема Бертрана-Чебышева, теорема Чебышева) гласит, что для любого n > 1 найдется простое число p
+# в интервале n < p < 2n. Такая гипотеза была выдвинута в 1845 году французским математиком Джозефем Бертраном
+# (проверившим ее до n=3000000) и доказана в 1850 году Пафнутием Чебышевым. Рамануджан в 1920 году нашел более простое
+# доказательство, а Эрдеш в 1932 – еще более простое.
+# Ваша задача состоит в том, чтобы решить несколько более общую задачу – а именно по числу n найти количество простых
+# чисел p из интервала n < p < 2n.
+# Напомним, что число называется простым, если оно делится только само на себя и на единицу.
+n = int(input())
+count = 0                                           # счетчик
+for p in range(n + 1, 2*n):
+    if p % 2 == 0 and p != 2 or p == 1:             # Убираем все четные без двойки и единицу
+        continue
+    # Цикл для перебора всех делителей
+    d = 3
+    is_plain = True                                 # Условие наличия делителя
+    while d*d <= p:                                 # Алгоритм нахождения делителей числа
+        if p % d == 0:
+            is_plain = False
+            break
+        d += 2
+    if is_plain:
+        count += 1
+
+print(count)
+
+# Решение через функцию:
+def is_plain_number(p):
+
+    if p % 2 == 0 and p != 2 or p == 1:             # Убираем все четные без двойки и единицу
+        return False
+    # Цикл для перебора всех делителей
+    d = 3
+    is_plain = True                                 # Условие наличия делителя
+    while d*d <= p:                                 # Алгоритм нахождения делителей числа
+        if p % d == 0:
+            return False
+        d += 2
+    return True
+
+n = int(input())
+count = 0                                           # счетчик
+for p in range(n + 1, 2*n):
+    if is_plain_number(p):
+        count += 1
+
+print(count)
+
 #
+n = int(input())
+a=0
+for i in range(n+1, n*2):
+    for j in range(2, int (i ** 0.5) + 1):
+        if i%j == 0:
+            break
+    else:
+        a += 1
+print(a)
+
+
+# Через сито Эратосфена
+n = int(input())
+
+
+def p(t):
+    if t == 2:
+        return True
+    if t % 2 == 0 or t <= 1:
+        return False
+
+    s = int(t ** 0.5) + 1
+
+    for d in range(3, s, 2):
+        if t % d == 0:
+            return False
+    return True
+
+
+i = 0
+for j in range(n + 1, 2 * n):
+    if p(j):
+        i += 1
+
+print(i)
+
+#
+# import datetime
+count = 0
+n = int(input())
+# t0 = datetime.datetime.now()
+start_of_range = n + 1
+if n % 2:
+    start_of_range += 1
+for i in range(start_of_range, 2 * n, 2):
+    for j in range(3, int(i**0.5) + 1, 2):
+        if i % j == 0:
+            break
+    else:
+        count += 1
+print(count)
+# t1 = datetime.datetime.now()
+# dt = (t1 - t0).total_seconds()
+# print(dt, ' sec')
+# 50000
+# 4459
+# 0.102284  sec
+
+#
+n,c = int(input()), 0
+for i in range(n+1, n*2):
+  for j in range(2, int(i**.5)+1):
+    if not i %j :
+      break
+  else:
+    c += 1
+print(c)
+
+# Напишите программу для построения горизонтальных столбчатых диаграмм с помощью символа звёздочки.
+n = list(map(int, input().split()))
+s = 0
+for i in n:
+    for j in range(i):
+        print('*', end='')
+    print()
+
