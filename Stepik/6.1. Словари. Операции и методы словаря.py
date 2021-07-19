@@ -98,3 +98,22 @@ print('Изменение значения ключа:')
 d[1] = [1, 2, 3]
 print(d)
 
+#
+print('Заполнение словаря:')
+person = {}
+s = 'IVANOV IVAN Samara SGU 5 4 5 5 4 3 5'
+s = s.split()
+
+print(s)
+
+person['lastName'] = s[0]
+person['firstName'] = s[1]
+person['city'] = s[2]
+person['univercity'] = s[3]
+person['marks'] = []
+
+for i in s[4:]:
+    person['marks'].append(int(i))
+
+print(person)
+
