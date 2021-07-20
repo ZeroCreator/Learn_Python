@@ -264,10 +264,10 @@ print(count)
 # 0.102284  sec
 
 #
-n,c = int(input()), 0
+n, c = int(input()), 0
 for i in range(n+1, n*2):
   for j in range(2, int(i**.5)+1):
-    if not i %j :
+    if not i %j:
       break
   else:
     c += 1
