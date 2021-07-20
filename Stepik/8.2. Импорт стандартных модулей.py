@@ -21,7 +21,7 @@ def summa(*args):
 #def factorial(n):          будет конфликт имен при 'from math import e, pi, factorial', так как выполняется последнее.
 #    print('my func')
 #    pr = 1
-#    for i in range(1, n - 1):
+#    for i in range(1, n + 1):
 #        pr += i
 #    return pr
 
