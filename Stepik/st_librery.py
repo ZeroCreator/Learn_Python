@@ -1,3 +1,4 @@
+# К уроку 8.3
 from math import *
 
 def say_hello(name):

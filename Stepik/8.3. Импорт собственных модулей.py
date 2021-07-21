@@ -1,6 +1,5 @@
 # Импорт собственных модулей.
-import st_librery
-
+from Stepik import st_librery
 from pprint import pprint
 
 # Через "." можно увидеть все пространство имен импортируемого модуля:
