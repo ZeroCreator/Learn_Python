@@ -1,5 +1,5 @@
 # РАБОТА С ФАЙЛАМИ.
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 print(file.read())
 file.close()
 
@@ -11,7 +11,7 @@ file.close()
 #
 print('Методы:')
 print('Чтение - считывает весь файл целиком - .read(2):')     # Прочитать первые два символа
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 print(file.read(3))
 print(file.read(3))
 print(file.read(4))
@@ -23,7 +23,7 @@ file.close()
 s = file.readlines().strip()
 #
 print('Откат чтения до нужного места - метод - .seak()')
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 print(file.read(3))
 file.seek(0)
 print(file.read(3))
@@ -32,21 +32,21 @@ file.close()
 
 #
 print('Чтение одной строчки целиком (построчно) - метод - .readline()')
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 print(file.readline())
 print(file.readline())
 file.close()
 
 #
 print('Способ обойти всю строку построчно:')
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 for row in file:
     print(row)
 file.close()
 
 #
 print('Способ обойти всю строку посимвольно:')
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 for row in file:
     for letter in row:
         print(letter)
@@ -54,14 +54,14 @@ file.close()
 
 #
 print('Создание списка, елементом которого будут строки файла - метод .readlines():')
-file = open('test.txt', encoding='utf-8')
+file = open('test_package/test.txt', encoding='utf-8')
 a = file.readlines()
 print(a)
 file.close()
 
 #
 print('записать в файл с дописыванием в конец "a" - метод .write():')
-file = open('write_test.txt', 'a', encoding='utf-8')
+file = open('test_package/write_test.txt', 'a', encoding='utf-8')
 file.write('hello\n')         # Допишет в конец
 file.write('hello\n')
 file.write('hello\n')
@@ -69,7 +69,7 @@ file.close()
 
 #
 print('записать в файл с перезатиранием содержимого "w" - метод .write():')
-file = open('write_test.txt', 'w', encoding='utf-8')
+file = open('test_package/write_test.txt', 'w', encoding='utf-8')
 file.write('hello\n')         # Перезатрет веесь файл
 file.write('hello\n')
 file.write('hi\n')
@@ -77,7 +77,7 @@ file.close()
 
 #
 print('режим "a+" - и чтение и запись')
-file = open('write_test.txt', 'a+', encoding='utf-8')
+file = open('test_package/write_test.txt', 'a+', encoding='utf-8')
 print(file.write('hi\n'))
 print(file.read())
 file.close()

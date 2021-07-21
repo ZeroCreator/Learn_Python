@@ -1,5 +1,5 @@
 # Импорт собственных модулей.
-from Stepik import st_librery
+from Stepik.test_package import st_librery
 from pprint import pprint
 
 # Через "." можно увидеть все пространство имен импортируемого модуля:
@@ -7,7 +7,7 @@ st_librery.summa()
 print(st_librery.factorial(10))
 print(st_librery.summa(43, 6, 46))
 
-from Stepik.st_librery import my_str, my_num1
+from Stepik.test_package.st_librery import my_str, my_num1
 print(my_str, my_num1)
 
 print(st_librery.e)
