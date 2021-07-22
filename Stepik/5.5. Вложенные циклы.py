@@ -5,14 +5,14 @@
 #       <действия>
 #   <действия>
 
-for i in range(3):
-    for j in range(5):
+for i in range(3):                  # Аналог строк
+    for j in range(5):              # Аналог столбцов
         print('*', end='')
     print()                         # Перенос на новую строчку
 
 
-for i in range(3):
-    for j in range(5):
+for i in range(3):                  # Внешний цикл
+    for j in range(5):              # Внутренний цикл
         print(i, end='')
     print()
 
@@ -139,8 +139,8 @@ for i in range(1, n + 1):
 
 #
 n = int(input())
-for i in range(1, n+1):
-    print(*range(1, i+1))
+for i in range(1, n + 1):
+    print(*range(1, i + 1))
 
 #
 for i in range(int(input())):
@@ -152,7 +152,7 @@ for i in range(int(input())):
 #
 n = int(input())
 a = []
-for i in range(1, n+1):
+for i in range(1, n + 1):
     a.append(str(i))
     print(*a)
 
@@ -165,14 +165,14 @@ for i in range(1, n+1):
 # чисел p из интервала n < p < 2n.
 # Напомним, что число называется простым, если оно делится только само на себя и на единицу.
 n = int(input())
-count = 0                                           # счетчик
-for p in range(n + 1, 2*n):
-    if p % 2 == 0 and p != 2 or p == 1:             # Убираем все четные без двойки и единицу
+count = 0  # счетчик
+for p in range(n + 1, 2 * n):
+    if p % 2 == 0 and p != 2 or p == 1:     # Убираем все четные без двойки и единицу
         continue
     # Цикл для перебора всех делителей
     d = 3
-    is_plain = True                                 # Условие наличия делителя
-    while d*d <= p:                                 # Алгоритм нахождения делителей числа
+    is_plain = True  # Условие наличия делителя
+    while d * d <= p:  # Алгоритм нахождения делителей числа
         if p % d == 0:
             is_plain = False
             break
@@ -196,9 +196,10 @@ def is_plain_number(p):
         d += 2
     return True
 
+
 n = int(input())
-count = 0                                           # счетчик
-for p in range(n + 1, 2*n):
+count = 0  # счетчик
+for p in range(n + 1, 2 * n):
     if is_plain_number(p):
         count += 1
 
@@ -206,10 +207,10 @@ print(count)
 
 #
 n = int(input())
-a=0
-for i in range(n+1, n*2):
-    for j in range(2, int (i ** 0.5) + 1):
-        if i%j == 0:
+a = 0
+for i in range(n + 1, n * 2):
+    for j in range(2, int(i ** 0.5) + 1):
+        if i % j == 0:
             break
     else:
         a += 1
@@ -250,7 +251,7 @@ start_of_range = n + 1
 if n % 2:
     start_of_range += 1
 for i in range(start_of_range, 2 * n, 2):
-    for j in range(3, int(i**0.5) + 1, 2):
+    for j in range(3, int(i ** 0.5) + 1, 2):
         if i % j == 0:
             break
     else:
@@ -265,12 +266,12 @@ print(count)
 
 #
 n, c = int(input()), 0
-for i in range(n+1, n*2):
-  for j in range(2, int(i**.5)+1):
-    if not i %j:
-      break
-  else:
-    c += 1
+for i in range(n + 1, n * 2):
+    for j in range(2, int(i ** .5) + 1):
+        if not i % j:
+            break
+    else:
+        c += 1
 print(c)
 
 # Напишите программу для построения горизонтальных столбчатых диаграмм с помощью символа звёздочки.
@@ -280,4 +281,3 @@ for i in n:
     for j in range(i):
         print('*', end='')
     print()
-

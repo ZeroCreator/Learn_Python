@@ -361,9 +361,9 @@ for i in range(n):
     name = input()
     if name not in logins:
         logins[name] = 0
-        print ('OK')
+        print('OK')
     else:
         logins[name] += 1
-        print(name+str(logins[name]))
+        print(name + str(logins[name]))
 
 #
