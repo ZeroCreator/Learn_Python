@@ -101,4 +101,31 @@ for j in range(4):              # Перебираем столбцы
     s = 0
     for i in range(3):          # Перебираем строки
         s += a[i][j]
-    print(s)                    # Сумма будет обнуляться после обх
+    print(s)                    # Сумма будет обнуляться после обхода каждой строки
+
+# Заполение вложенного списка:
+print('Заполение вложенного списка:')
+a = []
+n = int(input())        # stroka
+m = int(input())        # stolb
+
+#
+print('Заполнение таблицы однотипными элементами:')
+print("'0'")
+for i in range(n):
+    a.append([0]*m)
+for i in a:
+    print(i)
+
+#
+print('Заполнение таблицы значениями, введенными с клавиатуры:')
+a = []
+n = int(input())        # stroka
+m = int(input())        # stolb
+
+for i in range(n):
+    b = []
+    for i in range(m):
+        b.append(int(input()))
+for i in a:
+    print(i)
