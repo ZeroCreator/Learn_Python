@@ -234,7 +234,48 @@ for i in range(n):                                      #пробежали по
     print()                                             #перенос строки
 
 #
-n=int(input())
-l=[[*map(int,input().split())]for _ in '.'*n]
+n = int(input())
+l = [[*map(int, input().split())] for _ in '.' * n]
 [print(*(l[i][j] for i in range(n))) for j in range(n)]
+
+# Обход элементов матрицы - 2
+# Задана целочисленная квадратная матрица размером N x N. Необходимо обойти элементы этой матрицы снизу вверх справо
+# налево и вывести элементы именно в таком порядке в виде таблицы.
+# Программа принимает на вход натуральное число N – количество строк и столбцов матрицы. В каждой из последующих
+# N строк записаны N целых чисел – элементы матрицы.
+n = int(input())
+a = []
+for i in range(n):
+    a.append(list(map(int, input().split())))
+
+for j in range((n-1), -1, -1):
+    for i in range((n-1), -1, -1):
+        print(a[i][j], end=' ')
+    print()
+
+#
+n = int(input())
+a = [list(map(int, input().split())) for _ in range(n)]
+for j in range((n-1), -1, -1):
+    for i in range((n-1), -1, -1):
+        print(a[i][j], end=' ')
+    print()
+
+# Обход "по срезам"
+n = int(input())
+a = []
+for _ in range(n):
+    a += input().split()
+for i in range(n):
+    print(*a[-1-i::-n])
+
+#
+n = int(input())
+table = [input().split() for _ in range(n)]
+
+for i in range(n - 1, -1, -1):
+    print(*[table[j][i] for j in range(n)][::-1])
+
+#
+[print(*l[::-1]) for l in [*zip(*[[*map(int,input().split())] for _ in range(int(input()))])][::-1]]
 
