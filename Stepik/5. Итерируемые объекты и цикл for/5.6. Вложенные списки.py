@@ -279,3 +279,84 @@ for i in range(n - 1, -1, -1):
 #
 [print(*l[::-1]) for l in [*zip(*[[*map(int,input().split())] for _ in range(int(input()))])][::-1]]
 
+
+# Обход элементов матрицы - 3
+# Задана целочисленная матрица, состоящая из N строк и M столбцов. Необходимо обойти элементы этой матрицы cправо налево
+# сверху вниз и вывести элементы именно в таком порядке в виде таблицы.
+# Программа принимает на вход два натуральных числа N и M – количество строк и столбцов матрицы. В каждой из последующих
+# N строк записаны M целых чисел – элементы матрицы.
+n, m = list(map(int, input().split()))
+a = []
+for i in range(n):
+        a.append(list(map(int, input().split())))
+for i in range(n):
+    for j in range(m-1, -1, -1):
+        print(a[i][j], end=' ')
+    print()
+
+#
+n, m = list(map(int, input().split()))
+a = [list(map(int, input().split())) for _ in range(n)]
+for i in range(n):
+    for j in range(m-1, -1, -1):
+        print(a[i][j], end=' ')
+    print()
+
+#
+n, _ = map(int, input().split())
+for _ in range(n):
+    print(*input().split()[::-1])
+
+#
+for _ in range(int(input().split()[0])):
+    print(*input().split()[:: -1])
+
+#
+[print(*input().split()[::-1]) for i in range(int(input().split()[0]))]
+
+#
+n, m = map(int, input().split())
+[print(*input().split()[::-1]) for _ in n * '-']
+
+# Обход "по срезам".
+n = int(input().split()[0])
+a = []
+for _ in range(n):
+    a.append(list(map(int, input().split())))
+for i in a:
+    print(*i[::-1])
+
+
+# Обход элементов матрицы - 4
+# Задана целочисленная матрица, состоящая из N строк и M столбцов. Необходимо обойти элементы этой матрицы слева направо
+# снизу вверх и вывести элементы именно в таком порядке в виде таблицы.
+# Программа принимает на вход два натуральных числа N и M – количество строк и столбцов матрицы. В каждой из последующих
+# N строк записаны M целых чисел – элементы матрицы.
+n, m = list(map(int, input().split()))
+a = [list(map(int, input().split())) for _ in range(n)]
+for i in range(n-1, -1, -1):
+    for j in range(m):
+        print(a[i][j], end=' ')
+    print()
+
+#
+n, _ = map(int, input().split())
+s = []
+for _ in range(n):
+    s.append(input())
+print(*s[::-1], sep='\n')
+
+''' Обход элементов матрицы - 4, вариант 2 '''
+print(*[input() for _ in range(int(input().split()[0]))][::-1], sep="\n")
+
+#
+N, M = map(int, input().split())
+for row in reversed([list(map(int, input().split())) for row in range(N)]):
+	print(*row)
+
+#
+n = int(input().split()[0])
+a = [input().split() for _ in range(n)][::-1]
+[print(*i) for i in a]
+
+
