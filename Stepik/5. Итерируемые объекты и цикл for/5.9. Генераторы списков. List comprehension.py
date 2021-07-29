@@ -171,6 +171,27 @@ print([i ** 2 for i in range(a, b + 1)] if a <= b else [i ** 3 for i in range(a,
 a, b = map(int, input().split())
 print([i ** 2 for i in range(a, b + 1)] if a <= b else [i ** 3 for i in range(b, a + 1).__reversed__()])
 
+# На вход программе подается натуральное число n (n<=1000). При помощи list comprehension создайте список, с
+# остоящий из делителей введенного числа.
+n = int(input())
+print([i for i in range(1, n + 1) if n % i == 0])
+
+#
+[print([i for i in range(1, n + 1) if not n % i]) for n in [int(input())]]
+
+
+# При помощи генератора-списков создайте список, состоящий из слов,  начинающихся с буквы 't' или 'T'.
+# Слова возьмите из переменной phrase, также не забывайте про метод split()
+# В качестве ответа выведите полученный список, слова в нем должны стоять в том же порядке, в котором они стояли в
+# изначальной фразе
+phrase = 'Take only the words that start with t in this sentence'
+print([i for i in phrase.split() if i[0] == 't' or i[0] == 'T'])
+
+#
+print([i for i in phrase.split() if i[0] in 'tT'])
+
+#
+print([i for i in phrase.split() if i[0].lower() == 't'])
 
 
 
