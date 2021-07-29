@@ -112,3 +112,32 @@ assert find_duplicate([1, 2, 2, 3]) == [2]
 assert find_duplicate([7, 7, 7]) == [7]
 assert find_duplicate([3, 2, 1, 1, 2, 3]) == [3, 2, 1]
 assert find_duplicate([1, 2, 3]) == []
+
+
+# Напишите функцию first_unique_char, которая принимает строку символов и возвращает позицию первого уникального символа
+# в строке. В случае, если уникальных символов в переданной строке нет, верните -1. Регистр символов не учитывайте.
+# Ваша задача написать только определение функции first_unique_char
+def first_unique_char(s):
+    l = []
+    for i in s.lower():
+        if s.count(i) == 1:
+            l.append(s.find(i))
+    if len(l) > 0:
+        return l[0]
+    else:
+        return -1
+
+#
+def first_unique_char(array):
+    for i, num in enumerate(array):
+        if array.count(num) == 1:
+            return i
+    return -1
+
+#
+def first_unique_char(s):
+    for i in s:
+        if s.count(i) == 1:
+            return s.index(i)
+    return -1
+

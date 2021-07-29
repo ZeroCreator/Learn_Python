@@ -194,7 +194,7 @@ s = s.replace('y', '')
 s = s.replace('e', '')
 s = s.replace('u', '')
 s = s.replace('i', '')
-s='.'.join(s)
+s ='.'.join(s)
 print('.'+s)
 
 s=input()
