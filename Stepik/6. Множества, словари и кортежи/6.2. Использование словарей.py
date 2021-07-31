@@ -71,11 +71,16 @@ contacts = {
 persons = ["Donald John Trump", "Arnold Schwarzenegger", "John Kennedy"]
 for person in persons:
     print(person, contacts[person]['birthday'])
+    print(person, contacts[person])
 
 for person in persons:
     birthday = contacts[person]['birthday']
     city = contacts[person]['city']
     phone = contacts[person]['phone']
     children = contacts[person]['children']
-    print(person, contacts[person])
     print(person, children, phone)
+
+for person in persons:
+    print(person)
+    for data in contacts[person]:
+        print(data, contacts[person][data])
