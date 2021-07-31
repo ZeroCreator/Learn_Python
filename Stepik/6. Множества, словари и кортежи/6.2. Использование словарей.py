@@ -84,3 +84,31 @@ for person in persons:
     print(person)
     for data in contacts[person]:
         print(data, contacts[person][data])
+
+#
+print('Tasks')
+# Вашей программе поступает на вход строка, вам необходимо подсчитать сколько раз встретилась каждая буква в этой строке
+# без учета регистра, при этом цифры и символы пунктуации нужно пропустить. Ответ нужно сохранить в словаре, в котором
+# ключ - буква, а значение - количество раз, сколько эта буква встретилась в строке. В качестве ответа нужно вывести
+# словарь
+s = input().lower()
+d = {}
+for i in s:
+    if i.isalpha():
+        if i in d:
+            d[i]+=1
+        else:
+            d[i] = 1
+print(d)
+
+#
+s = input().lower()
+d = {i: s.count(i) for i in s if i.isalpha()}
+print(d)
+
+#
+d = {}
+for i in input().lower():
+    if i.isalpha():
+        d[i] = d.get(i, 0) + 1
+print(d)
