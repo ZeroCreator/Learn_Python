@@ -305,3 +305,22 @@ for i in str:
     c.add(i)
 
 print (*sorted(c) if c else ["NO"])
+
+#
+s = input()
+s = set(i for i in s if i.isdigit() and s.count(i)>1)
+print(*['NO']if not s else sorted(s,key=int))
+
+#
+a = input()
+s = []
+for i in range(10):
+    if a.count(str(i)) > 1:
+        s.append(i)
+print(*s or ["NO"])
+
+#
+s, a = set(), input()
+[s.add(_) for _ in a if _.isdigit() and a.count(_) > 1]
+print(*sorted(s) if s else ['NO'])
+
