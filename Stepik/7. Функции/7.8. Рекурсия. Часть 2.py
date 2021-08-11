@@ -50,13 +50,16 @@ def s(n):
     return s(n-1) + int(input())    # Обработка рекурентного случая
 
 # Фактоириал числа:
-print('Фактоириал числа:')
+print('Факториал числа:')
 def factorial(n):
     if n == 0:
         return 1
     return factorial(n-1)*n
 
 print(factorial(5))
+
+# Динамическое программирование - разворот рекурсии в другую сторону
+
 
 # Матрешка
 print('Матрешка')
@@ -83,5 +86,5 @@ def hanoi(n, start, finish):
 hanoi(3, 1, 2)
 hanoi(4, 1, 2)
 
-from turtle import *
-forward(100)
+
+
