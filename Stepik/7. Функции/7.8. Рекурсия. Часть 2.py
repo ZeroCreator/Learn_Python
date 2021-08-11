@@ -42,3 +42,46 @@ def rec(spicok, level=1):
 
 rec(a)
 
+# Посчиать сумму чисел, введенных с клавиатуры:
+print('Посчиать сумму чисел, введенных с клавиатуры:')
+def s(n):
+    if n == 1:      # Обработка крайнего случая
+        return int(input())
+    return s(n-1) + int(input())    # Обработка рекурентного случая
+
+# Фактоириал числа:
+print('Фактоириал числа:')
+def factorial(n):
+    if n == 0:
+        return 1
+    return factorial(n-1)*n
+
+print(factorial(5))
+
+# Матрешка
+print('Матрешка')
+def matroska(n):
+    if n == 1:
+        print('Крайняя матрешечка')
+    else:
+        print('Верх матрешки n=', n) # Прямой ход рекурсии
+        matroska(n-1)
+        print('Низ матрешки n =', n) # Обратный ход рекурсии
+
+matroska(5)
+
+# Ханойские башни
+def hanoi(n, start, finish):
+    if n == 1:
+        print('Переложить блин 1 с', start, 'на', finish)
+    else:
+        tmp = 6 - start - finish
+        hanoi(n - 1, start, tmp)
+        print('Переложить блин', n, 'c', start, 'на', finish)
+        hanoi(n - 1, tmp, finish)
+
+hanoi(3, 1, 2)
+hanoi(4, 1, 2)
+
+from turtle import *
+forward(100)
