@@ -5,7 +5,7 @@ file.close()
 
 #
 #print('Абсолютный путь к файлу')
-#file = open(r'C:\Users\shkol\Learn_Python\Learn_Python\Stepik\test.txt', encoding='utf-8')
+#file = open(r'C:\Users\shkol\Learn_Python\Learn_Python\stepik - Инди-курс от egoroff_channel\test.txt', encoding='utf-8')
 #print(file.read())
 
 #
