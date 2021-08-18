@@ -1,7 +1,7 @@
-averages = []
-marks_math = []
-marks_phys = []
-marks_rus = []
+averages = []   # средние
+marks_math = [] # оценки по математике
+marks_phys = [] # оценки по физике
+marks_rus = []  # оценки по русскому
 counter = 0
 value01 = 0
 value02 = 0
@@ -37,3 +37,15 @@ print(average_math)
 print(average_phys)
 print(average_rus)
 print()
+
+'''
+Ответ на тестовую задачу:
+
+85.0
+
+94.0
+
+71.66666666666667
+
+81.0 84.0 85.66666666666667
+'''
