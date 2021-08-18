@@ -69,6 +69,6 @@ for key, value in dictionary.items():
         max_quantity = current_quantity
         word_with_max_quantity = key
 
-with open('03_04_03_output.txt', 'w') as out_f_obj:
+with open('output_3.4.3.txt', 'w') as out_f_obj:
     most_popular = (word_with_max_quantity + ' ' + str(max_quantity))
     out_f_obj.write(most_popular)

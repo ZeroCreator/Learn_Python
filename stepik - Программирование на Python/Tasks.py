@@ -885,7 +885,7 @@ for key, value in dictionary.items():
         max_quantity = current_quantity
         word_with_max_quantity = key
 
-with open('03_04_03_output.txt', 'w') as out_f_obj:
+with open('output_3.4.3.txt', 'w') as out_f_obj:
     most_popular = (word_with_max_quantity + ' ' + str(max_quantity))
     out_f_obj.write(most_popular)
 
@@ -931,7 +931,7 @@ with open('03_04_04_input.txt') as in_f_obj:
         marks_rus.append(int(line[3]))
         counter += 1
 
-with open('03_04_04_output.txt', 'w') as out_f_obj:
+with open('output_3.4.4.txt', 'w') as out_f_obj:
     for _ in averages:
         out_f_obj.write(str(_) + '\n')
 
@@ -946,6 +946,11 @@ with open('03_04_04_output.txt', 'w') as out_f_obj:
     average_rus = value03 / counter
 
     out_f_obj.write(str(average_math) + ' ' + str(average_phys) + ' ' + str(average_rus))
+
+print(average_math)
+print(average_phys)
+print(average_rus)
+print()
 
 # 03_05_03 Модули, подключение модулей
 
