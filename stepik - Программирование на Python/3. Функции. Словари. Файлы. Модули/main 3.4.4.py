@@ -58,10 +58,9 @@ with open('output_3.4.4.txt', 'w') as out_f_obj:
 
     (out_f_obj.write(str(average_math) + ' ' + str(average_phys) + ' ' + str(average_rus)))
 
-print(average_math)
-print(average_phys)
-print(average_rus)
-print()
+print(round(average_math, 9))
+print(round(average_phys, 9))
+print(round(average_rus, 9))
 
 '''
 Ответ на тестовую задачу:
