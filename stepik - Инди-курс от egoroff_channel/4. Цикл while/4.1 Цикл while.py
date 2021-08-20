@@ -559,5 +559,188 @@ while bb and bg:
         bb.pop(0); bg.pop(0); cnt += 1
 print(cnt)
 
+# В последний день уходящего 2016 года Лимак собирается принять участие в соревновании по спортивному программированию.
+# Соревнование начнётся в 20:00 и будет продолжаться четыре часа, то есть ровно до полуночи. Участникам будет предложено
+# n задач, упорядоченных по возрастанию сложности, то есть задача 1 будет самой лёгкой, а задача номер n — самой сложной.
+# Лимак знает, что ему потребуется 5·i минут на решение i-й задачи.
+# Друзья Лимака планирую устроить роскошную новогоднюю вечеринку и Лимак хочет прибыть в полночь или ранее.
+# Он знает, что ему требуется ровно k минут чтобы добрать до места проведения вечеринки от своего дома, где он
+# собирается участвовать в соревновании.
+# Сколько максимум задач может успеть решить Лимак, так чтобы не опоздать на новогоднюю вечеринку?
+# Входные данные:
+#
+# В первой строке входных данных записаны два целых числа n и k (1≤n≤10, 1≤k≤240) — количество задач в соревновании и
+# количество минут, за которое Лимак доберётся от дома до места проведения вечеринки.
+# Выходные данные:
+# Выведите одно целое число, равное максимальному количеству задач, которое может решить Лимак, так чтобы прибыть на
+# новогоднюю вечеринку ровно в полночь или раньше.
+n, k = map(int, input().split())
+a, b = n, k
+i = 0
+t = 0
+tav = 240 - k
+while 1:
+    t += (i + 1) * 5
+    if t > tav or i == n:
+        break
+    i += 1
+print(i)
+
+#
+n, k = map(int, input().split())
+i, t = 0, 0
+while i < n and t + k + 5*(i + 1) <= 240:
+    i += 1
+    t += 5 * i
+print(i)
+
+#
+a, b = map(int, input().split())
+s, x = 0, 5
+while x < 240 - b and s < a:
+    s = s + 1
+    x = x + (5 * s)
+print(s)
+
+#
+n, k = map(int, input().split())
+print(min(n, int((1 + 2 * (240 - k) / 5)**0.5 - 0.5)))
+
+#
+n, k = map(int, input().split())
+h = (240 - k) # время на решение задач
+kol = 0       # количество решенных задач
+i = 0         # номер задачи
+t = 0         # время на решенные задачи
+
+while i < n:
+    i += 1
+    vremya = 5 * i # время на i задачу
+    t += vremya
+    if t <= h:
+        kol += 1
+    else:
+        break
+    # print(i,vremya,t,h,kol)
+print(kol)
+
+#
+n,m = map(int,input().split())
+c = 0
+b = 1
+a = 240-m
+while c < n and a > b:
+    a-=b*5
+    b+=1
+    c+=1
+print(c)
+
+#
+n, k = map(int, input().split())
+count = 0
+time = k
+while ((time + count * 5 ) < 240) and (count < n):
+    count += 1
+    time += 5 * count
+print(count)
+
+
+# Слияние списков
+# В вашем распоряжении имеется два отсортированных списка по неубыванию элементов, состоящих из n и m элементов
+# Ваша задача слить их в один отсортированный список размером  n + m
+# Входные данные:
+# Программа получает на вход два числа n и m - количество элементов первого списка и второго списков
+# Затем с новой строки поступают элементы первого отсортированного списка, а со следующей строки - второго списка
+# Выходные данные:
+# Слить два списка в один в порядке неубывания и вывести элементы полученного списка
+n,m=map(int,input().split())
+a=list(map(int,input().split()))
+b=list(map(int,input().split()))
+i=0
+while m>0:
+    if b[0]<=a[i]:
+        a.insert(i,b[0])
+        del b[0]
+        m=m-1
+        i=0
+    elif i==len(a)-1:
+        a.append(b[0])
+        m=m-1
+        i=0
+    else:
+        i=i+1
+a=list(map(str,a))
+a=' '.join(a)
+print(a)
+
+#
+n, m = input().split()
+f = list(map(int, input().split()))
+s = list(map(int, input().split()))
+
+total = f + s
+solution = []
+while len(total) > 0:
+    solution.append(min(total))
+    total.remove(min(total))
+
+print(*solution)
+
+#
+from heapq import merge
+n, m = input().split()
+list1 = list(map(int, input().split()))
+list2 = list(map(int, input().split()))
+print(*list(merge(list1, list2)))
+
+#
+n, m = map(int, input().split())
+list1 = list(map(int, input().split()))
+list2 = list(map(int, input().split()))
+list3 = list1+list2
+list_sort =[]
+while len(list3) > 0:
+    min1 = min(list3)
+    list_sort.append(min1)
+    list3.remove(min1)
+print(*list_sort)
+
+#
+n,m=map(int,input().split())
+a=[int(i) for i in input().split()]
+b=[int(i) for i in input().split()]
+c=a+b
+new=[]
+x=0
+while x<len(c):
+    new.append(min(c))
+    c.remove(min(c))
+print(*new)
+
+#
+a, b = map(int, input().split())            # количствео символов в стрках
+spis_a = list(map(int, input().split()))    # Строки
+spis_b = list(map(int, input().split()))    # Строки 2
+act_a = spis_a[:a + 1]                      # Список для обработки
+act_b = spis_b[:b + 1]                      # Список для обработки 2
+spisok = []                                 # Пополняемый список
+while sum(act_a) != 0 or sum(act_b) != 0:   # Если цифр в строках не осталось
+    if sum(act_a) != 0:                     # Если в списке А что то есть
+        if sum(act_b) == 0:                 # Если в списке Б пусто
+            spisok.append(act_a[0])         # Добовляем первый знак из перовго списка
+            act_a.remove(act_a[0])          # Удаляем первый знак из перовго списка
+        elif act_a[0] < act_b[0]:           # Сравниваем первые числа списков
+            spisok.append(act_a[0])         # Добовляем первый знак из перовго списка
+            act_a.remove(act_a[0])          # Удаляем первый знак из перовго списка
+        else:                               # Если первый символ в списке А больше чем в списке Б
+            spisok.append(act_b[0])         # Добовляем первый знак из второго списка
+            act_b.remove(act_b[0])          # Удаляем первый знак из перовго списка
+    else:                                   # Если в списке а Ничего нет
+        spisok.append(act_b[0])             # Добовляем первый знак из второго списка
+        act_b.remove(act_b[0])              # Удаляем первый знак из перовго списка
+
+print(str(spisok).replace(',', '').replace('[', '').replace(']', ''))
+                # Переделаваем список в строку и заменяем ',' на ''.
+
 
 

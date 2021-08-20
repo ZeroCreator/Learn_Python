@@ -298,3 +298,31 @@ for i in range(bl):
     cb += int(b[i])               # проходим по списку b и суммируем все цифры
 
 print(bl, cb)
+
+# На вход программе поддается строка, а ваша задача определить сколько символов в данной строке являются цифрами и также
+# найти сумму всех этих цифр. Например, в строке "Комната 1408" содержится 4 цифры и их сумма равна 13.
+# В качестве ответа необходимо через пробел вывести 2 числа - количество цифр в введенной строке и их сумма
+s = []
+count = 0
+for i in input():
+    if i.isdigit():
+        s.append(int(i))
+        count += 1
+print(count, sum(s))
+
+#
+[print(len(s), sum(s)) for s in [[int(i) for i in input() if i.isdigit()]]]
+
+#
+lst = [int(i) for i in input() if i.isdigit()]
+print(len(lst), sum(lst))
+
+#
+# С посощью генератора списка
+digit_list = [int(char) for char in input() if char.isdigit()]
+print(len(digit_list), sum(digit_list))
+
+# С помощью регулярный выражений
+# import re
+# digit_list = re.findall(r'\d', input())
+# print(len(digit_list), sum([int(i) for i in digit_list]))
