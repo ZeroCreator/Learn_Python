@@ -317,7 +317,6 @@ print(count, sum(s))
 lst = [int(i) for i in input() if i.isdigit()]
 print(len(lst), sum(lst))
 
-#
 # С посощью генератора списка
 digit_list = [int(char) for char in input() if char.isdigit()]
 print(len(digit_list), sum(digit_list))

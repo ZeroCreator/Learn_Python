@@ -413,3 +413,78 @@ for i in range(5):
             print(abs(i-2) + abs(j-2))
 
 #
+
+
+# Сумма строк и столбцов двумерного массива
+# Задан целочисленный двумерный массив, состоящий из N строк и M столбцов. Требуется вычислить сумму элементов в каждой
+# строке и в каждом столбце.
+# Программа получает на вход два натуральных числа N и M – количество строк и столбцов двумерного массива. В каждой из
+# последующих N строк записаны M целых чисел – элементы массива. Все числа во входных данных не превышают 1000 по
+# абсолютной величине.
+# В первой строке вам необходимо вывести N чисел – суммы элементов массива для каждой строки в отдельности.
+# Во второй строке в аналогичном формате выведите M чисел – суммы элементов для каждого столбца.
+n, m = map(int,input().split())
+a = []
+for i in range(n):
+    a.append(list(map(int,input().split())))
+for s in range(n):
+    print(sum(a[s]), end=' ')
+print()
+for e in range(m):
+    p = 0
+    for j in range(n):
+        p +=a [j][e]
+    print(p, end=' ')
+
+#
+
+row, col = map(int, input().split())
+matrix = [list(map(int, input().split())) for row in range(row)]
+for row in matrix:
+	print(sum(row), end=' ')
+print()
+for x in range(col):
+	print(sum([row[x] for row in matrix]), end=' ')
+
+
+# Симметричная ли матрица?
+# Проверьте, является ли двумерный массив симметричным относительно главной диагонали. Главная диагональ — та, которая
+# идёт из левого верхнего угла двумерного массива в правый нижний.
+# Входные данные:
+# Программа получает на вход число n<100, являющееся числом строк и столбцов в массиве. Далее во входном потоке идет n
+# строк по n чисел, являющихся элементами массива.
+# Выходные данные:
+# Программа должна выводить слово Yes для симметричного массива и слово No для несимметричного.
+n = int(input())            # количество элементов в массиве
+mas = []                    # создаем пустой массив
+for i in range(n):          # заполняем массив
+    mas.append(list(map(int, input().split())))
+
+# Пройдем по всем индексам:
+count = 0 # счетчик
+for i in range(n):
+    for j in range(n):
+        if mas[i][j] != mas[j][i]:
+            count += 1
+if count > 0:
+    print('no')
+else:
+    print('yes')
+
+#
+lst = []
+for i in range(int(input())):
+    lst.append(list(map(int, input().split())))
+flag = 'Yes'
+for i in range(len(lst)):
+    for j in range(len(lst[0])):
+        if lst[i][j] != lst[j][i]:
+            flag = 'No'
+print(flag)
+
+#
+n = int(input())
+s = [input().split() for i in range(n)]
+s1 = [[s[j][i] for j in range(n)] for i in range(n)]
+print('Yes' if s == s1 else 'No')
+
