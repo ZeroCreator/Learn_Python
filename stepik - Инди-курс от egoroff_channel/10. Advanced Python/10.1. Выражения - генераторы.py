@@ -72,3 +72,18 @@ print(sum(b)) # = 55
 print(sum(b)) # = 0
 
 # Элементы генератора не хранятся в памяти все вместе, а формируются налету.
+# Ошибка переполнения памяти!!!
+# c = list(range(1000000000))
+# c = [i for i in range(1000000000)]
+c = (i for i in range(1000000000))
+# for i in c:
+#    print(i)
+
+# Ограничения выражений генераторов:
+print('Ограничения выражений генераторов:')
+a = [i**2 for i in range(1, 6)]
+print(a)
+c = (i**2 for i in range(1, 6))
+print(c)
+print(list(c))
+print(list(c))
