@@ -1216,6 +1216,69 @@ for i in range(len(cipher_to_message)):
 print(ciphered_message)
 print(unciphered_message)
 
+#
+a,b,c,d=input(),input(),input(),input()
+print(''.join(b[a.index(i)] for i in c))
+print(''.join(a[b.index(i)] for i in d))
+
+#
+# Считываем 4 строки в цикле
+original, coding, first_string, second_string = (input() for i in range(4))
+
+# По индексу символа из оригинала берём символ на замену из кодировки,
+# для каждого символа из строки, которую нужно закодировать
+print(*[coding[original.find(symbol)] for symbol in first_string], sep='')
+# Аналогично, только наоборот :D
+print(*[original[coding.find(symbol)] for symbol in second_string], sep='')
+
+#
+def code(source, end, data):
+    ''' Data coder '''
+    cryptData = ''
+    for char in data:
+        cryptData += end[source.index(char)]
+    return cryptData
+
+# Input data
+key1 = input()
+key2 = input()
+decode = input()
+encode = input()
+
+print(code(key1, key2, decode))
+print(code(key2, key1, encode))
+
+#
+class Encryption():
+    def __init__(self, letters, replacement):
+        self.encr_dic = {letters[i]: replacement[i] for i in range(len(letters))}
+        self.decr_dic = {replacement[i]: letters[i] for i in range(len(letters))}
+
+    def encrypt(self, string):
+        return ''.join(self.encr_dic[i] for i in string)
+
+    def decrypt(self, string):
+        return ''.join(self.decr_dic[i] for i in string)
+
+
+ans = Encryption(input(), input())
+print(ans.encrypt(input()))
+print(ans.decrypt(input()))
+
+#
+def decode(dictionary, mes):
+    return ''.join(str(dictionary[ch]) for ch in mes)
+
+a, b, c, d = input(), input(), input(), input()
+print(decode(dict(zip(a, b)), c))
+print(decode(dict(zip(b, a)), d))
+
+#
+a1=input()
+a2=input()
+print(''.join([a2[a1.find(s)] for s in input()]))
+print(''.join([a1[a2.find(s)] for s in input()]))
+
 # 03_07_03 Задачи по материалам недели
 
 '''
@@ -1261,6 +1324,50 @@ for _ in range(l):
 for word in unknow_words:
     print(word)
 
+
+#
+dic = {input().lower() for i in range(int(input()))}
+
+wrd = set()
+for w in range(int(input())):
+    wrd |= {i.lower() for i in input().split()}
+
+print(*wrd.difference(dic), sep="\n")
+
+#
+count_dict = int(input())
+dict = []
+check_words = []
+result = []
+
+#заполняем словарь
+for i in range(count_dict):
+  dict.append(input().lower())
+
+
+count_lines = int(input())
+
+#заполняем список проверяемых слов
+for i in range(count_lines):
+  check_words += input().lower().strip().split(' ')
+
+
+#выбираем слова которые не проходят проверку
+for i in check_words:
+  if i not in dict and i not in result:
+    result.append(i)
+
+
+#печатаем
+for i in result:
+  print(i)
+
+#
+words = set(input().lower() for i in range(int(input())))
+text = set(('\n'.join(input().lower() for i in range(int(input())))).split())
+print('\n'.join(text - words))
+
+
 # 03_07_04 Задачи по материалам недели
 
 '''
@@ -1296,6 +1403,26 @@ x = movement['восток'] - movement['запад']
 y = movement['север'] - movement['юг']
 
 print(x, y)
+
+#
+n=int(input())
+d={'север':0,'запад':0,'юг':0,'восток':0}
+for i in range(n):
+    x=input().split()
+    d[x[0]]+=int(x[1])
+print(d['восток']-d['запад'], d['север']-d['юг'])
+
+#
+dict = {'север': 0, 'юг': 0, 'запад': 0, 'восток': 0}
+
+for _ in range(int(input())):
+    key, value = input().split()
+    dict[key] += int(value)
+
+print(dict['восток'] - dict['запад'], dict['север'] - dict['юг'])
+
+#
+
 
 # 03_07_05 Задачи по материалам недели
 

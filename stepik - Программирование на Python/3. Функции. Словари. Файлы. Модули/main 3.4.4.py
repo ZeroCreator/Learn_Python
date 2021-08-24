@@ -23,45 +23,28 @@ Sample Output:
 81.0 84.0 85.666666667
 '''
 
-averages = []   # средние
-marks_math = [] # оценки по математике
-marks_phys = [] # оценки по физике
-marks_rus = []  # оценки по русскому
-counter = 0
-value01 = 0
-value02 = 0
-value03 = 0
+math_values = []
+physics_values = []
+russian_values = []
+with open('dataset_3363_4.txt', 'r') as in_file:
+    for line in in_file:
+        current_line = line.strip().split(';')
+        math_values.append(int(current_line[1]))
+        physics_values.append(int(current_line[2]))
+        russian_values.append(int(current_line[3]))
+out_file = open('output_3.4.4.txt', 'w')
+for i in range(len(math_values)):
+    out_file.write(str((math_values[i] + physics_values[i] + russian_values[i]) / 3) + '\n')
+if len(math_values) > 0:
+    out_file.write(str(sum(math_values) / len(math_values)) + ' ' +
+                   str(sum(physics_values) / len(physics_values)) + ' ' +
+                   str(sum(russian_values) / len(russian_values)))
+out_file.close()
 
-with open('dataset_3363_4.txt') as in_f_obj:
-    for line in in_f_obj:
-        line = line.rstrip().split(';')
-        student_average = ((int(line[1]) + int(line[2]) + int(line[3])) / 3)
-        averages.append(student_average)
-        marks_math.append(int(line[1]))
-        marks_phys.append(int(line[2]))
-        marks_rus.append(int(line[3]))
-        counter += 1
-
-with open('output_3.4.4.txt', 'w') as out_f_obj:
-    for _ in averages:
-        out_f_obj.write(str(_) + '\n')
-
-    for _ in marks_math:
-        value01 += int(_)
-    for _ in marks_phys:
-        value02 += int(_)
-    for _ in marks_rus:
-        value03 += int(_)
-    average_math = value01 / counter
-    average_phys = value02 / counter
-    average_rus = value03 / counter
-
-    (out_f_obj.write(str(average_math) + ' ' + str(average_phys) + ' ' + str(average_rus)))
-
-print(round(average_math, 9))
-print(round(average_phys, 9))
-print(round(average_rus, 9))
-
+#print(round(average_math, 9))
+#print(round(average_phys, 9))
+#print(round(average_rus, 9))
+#out_f_obj('{},{},{}, {}'.format(average_math, average_phys, average_rus,  ))
 '''
 Ответ на тестовую задачу:
 
