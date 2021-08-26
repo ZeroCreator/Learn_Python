@@ -18,7 +18,7 @@ def f1(x): # Четные
 b = filter(f1, a)
 print(list(b))
 
-def f2(x): # Двузнаяные
+def f2(x): # Двузначные
     return x > 9 and x < 100
 
 b = filter(f2, a)
