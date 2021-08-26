@@ -30,7 +30,7 @@ class_rawinfo = {}
 class_info = ['-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-']
 #class_info = []
 
-with open('dataset_3380_5.txt') as in_f_obj:
+with open('input_3.7.5.txt') as in_f_obj:
 	for line in in_f_obj:
 		#print(line)
 		string = line.rstrip().split('\t')
@@ -65,7 +65,7 @@ with open('output_3.7.5.txt', 'w') as out_f_obj:
 # Делаем словарь {1:[0,0], 2:[0,0]... 11:[0,0]}, где [0:0] = [сумма ростов : кол-во учеников]
 tab = {i: [0, 0] for i in range(1, 12)}
 
-with open('dataset_3380_5.txt') as inf:
+with open('input_3.7.5.txt') as inf:
 	# Заполняем словарь:
 	for i in inf:
 		line = i.strip().split('\t')
@@ -84,13 +84,13 @@ with open('dataset_3380_5.txt') as inf:
 #
 import pandas as pd
 
-df = pd.read_table('C:\\Users\\User\\Desktop\\py_course\\dataset_3380_5.txt', header=None, sep=r'\s{1,}')
+df = pd.read_table('C:\\Users\\User\\Desktop\\py_course\\input_3.7.5.txt', header=None, sep=r'\s{1,}')
 print(df.groupby(0).mean())
 
 
 #
 classes = {i: [] for i in range(1, 12)}
-with open('dataset_3380_5.txt') as f:
+with open('input_3.7.5.txt') as f:
     for line in f:
         cls, name, height = line.strip().split('\t')
         classes[int(cls)].append(int(height))
@@ -109,7 +109,7 @@ for l in open('in'):
 
 #
 d = {i:[0, 0] for i in range(1, 12)}
-with open('dataset_3380_5.txt') as a:
+with open('input_3.7.5.txt') as a:
     for i in a:
         s = i.split('\t')
         sum_height = d[int(s[0])][0] + int(s[2])

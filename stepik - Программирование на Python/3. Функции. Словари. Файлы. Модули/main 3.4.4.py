@@ -26,7 +26,7 @@ Sample Output:
 math_values = []
 physics_values = []
 russian_values = []
-with open('dataset_3363_4.txt', 'r') as in_file:
+with open('input_3.4.4.txt', 'r') as in_file:
     for line in in_file:
         current_line = line.strip().split(';')
         math_values.append(int(current_line[1]))
