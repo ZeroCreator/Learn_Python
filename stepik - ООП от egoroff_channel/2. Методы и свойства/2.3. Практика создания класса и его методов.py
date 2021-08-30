@@ -1,14 +1,103 @@
 # Практика создания класса и его методов.
-# Класс Point.
+# Класс Point(x,y).
 class Point:
 
-    def __init__(self, coord_x, coord_y):
-        self.coord_x = coord_x
-        self.coord_y = coord_y
+    def __init__(self, coord_x=0, coord_y=0):
+        self.x = coord_x
+        self.y = coord_y
+
+# перемещение точек по координатной плоскости:
+    def move_to(self, new_x, new_y):
+        self.x = new_x
+        self.y = new_y
+
+# возвращение в начало координат
+    def go_home(self):
+        self.x = 0
+        self.y = 0
 
 
 p1 = Point(3, 4)
 p2 = Point(-54, 32)
+p3 = Point()
+p3.move_to(4, 5)
+p3.move_to(-90, 5)
+
+# Редактирование кода:
+from math import sqrt
+class Point:
+
+    def __init__(self, coord_x=0, coord_y=0):
+        self.move_to(coord_x, coord_y)
+
+    def move_to(self, new_x, new_y):
+        self.x = new_x
+        self.y = new_y
+
+    def go_home(self):
+        self.move_to(0, 0)
+
+    def print_point(self):
+        print(f"Точка с координатами ({self.x}, {self.y})")
+
+# метод для работы с несколькими экземплярами:
+    # рассчитать дистанцию между двумя точками:
+    def calc_distance(self, another_point):
+        if not isinstance(another_point, Point):
+            raise ValueError("Аргумент должен принадлежать классу Точка")
+        return sqrt((self.x - another_point.x)**2 + (self.y - another_point.y)**2)
+
+
+p4 = Point(4)
+p4.move_to(4, 8)
+p4.move_to(8, 8)
+p4.go_home()
+
+p5 = Point()
+p5.print_point()
+p5.move_to(7, 43)
+p5.print_point()
+
+p6 = Point()
+p6.print_point()
+
+p7 = Point(6, 0)
+p8 = Point(0, 8)
+p7.calc_distance(p8)
+
+# Создание аттрибута, который распространяется на весь класс:
+from math import sqrt
+class Point:
+
+    list_points = []
+
+    def __init__(self, coord_x=0, coord_y=0):
+        self.move_to(coord_x, coord_y)
+        Point.list_points.append(self)
+
+    def move_to(self, new_x, new_y):
+        self.x = new_x
+        self.y = new_y
+
+    def go_home(self):
+        self.move_to(0, 0)
+
+    def print_point(self):
+
+    def calc_distance(self, another_point):
+        if not isinstance(another_point, Point):
+            raise ValueError("Аргумент должен принадлежать классу Точка")
+        return sqrt((self.x - another_point.x)**2 + (self.y - another_point.y)**2)
+
+
+p11 = Point()
+print(p11)
+p12 = Point(4, 5)
+print(Point.list_points)
+print(Point.list_points[1])
+print(Point.list_points[1].x)
+print(Point.list_points[1].y)
+
 
 #
 print('Tasks')

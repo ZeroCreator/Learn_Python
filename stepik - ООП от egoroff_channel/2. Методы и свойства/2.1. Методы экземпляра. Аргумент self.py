@@ -177,3 +177,41 @@ class Counter:
 # p2.set_coordinates(4, 6)
 # d = p1.get_distance(p2) # вернёт 5.0
 # p1.get_distance(10) # Распечатает "Передана не точка"
+class Point:
+    def set_coordinates(self, x, y):
+        self.x = x
+        self.y = y
+
+    def get_distance(self, arg):
+        if isinstance(arg, Point):
+            return ((self.x - arg.x) ** 2 + (self.y - arg.y) ** 2) ** 0.5
+        else:
+            print(f'Передана не точка')
+
+
+#
+class Point():
+
+    def set_coordinates(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def get_distance(self, point):
+        try:
+            return ((self.x - point.x) ** 2 + (self.y - point.y) ** 2) ** 0.5
+        except:
+            print("Передана не точка")
+
+#
+class Point:
+    def set_coordinates(self, x, y):
+        self.x = x
+        self.y = y
+
+    def get_distance(self, other):
+        if isinstance(other, Point):
+            return ((self.x - other.x) ** 2 + (self.y - other.y) ** 2) ** 0.5
+        print('Передана не точка')
+
+#
+
