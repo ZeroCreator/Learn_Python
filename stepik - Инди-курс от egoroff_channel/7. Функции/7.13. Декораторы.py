@@ -2,7 +2,6 @@
 # Декоратор это функция внутрь которой входит еще какая либо функция выполнение которой дополняет функция декоратор,
 # в декораторе также присутствует замыкание.
 
-
 def decorator(func):
 
     def inner():
@@ -18,28 +17,46 @@ def say():
 def buy():
     print('buy world')
 
-d = decorator(say)
+d = decorator(say) # Декоратор
 print(d)
 print(d())
 
-print()
-
-print(say.__name__) # -> say
-say = decorator(say)
-print(say.__name__) # -> inner
-say()
-
-print()
-buy = decorator(buy)
+buy = decorator(buy) # Декоратор
 buy()
 
-print()
-# Потеря имени функции и потеря документации:
-# 1 - при использовании декораторов функция, которая декорируется, теряет свое имя и строки с описанием (документацию)
-# 2 - чтобы этого избежать можно выбрать два пути:
-# 2а - в функции-декораторе нужно добавить строки с пересохранением __name__ и __doc__ функции inner (сохранить значения функции-аргумента)
-# 2б - импортировать модуль wraps (from functool import wraps) и навесить декоратор @wraps на inner функцию
-print('Потеря имени функции и потеря документации:')
+def header(func):
+    def inner(*args, **kwargs):
+        print('<h1>')
+        func(*args, **kwargs)
+        print('</h1>')
+
+    return inner
+
+def table(func):
+ # При описывании декоратора правило - все аргументы описывать с помощью *args и **kwargs
+    def inner(*args, **kwargs):
+        print('<table>')
+        func(*args, **kwargs)
+        print('</table>')
+
+    return inner
+
+def say(name, surname, age):
+    print('hello', name, surname, age)
+
+say = table(header(say))
+say('Vasya', 'Ivanov', 30)
+
+# Навешивание декораторов - @
+print('Навешивание декораторов - @')
+def header(func):
+    def inner(*args, **kwargs):
+        print('<h1>')
+        func(*args, **kwargs)
+        print('</h1>')
+
+    return inner
+
 def table(func):
 
     def inner(*args, **kwargs):
@@ -49,8 +66,40 @@ def table(func):
 
     return inner
 
-def say():
-    print('hello world')
+#Декорирование:
+@header # say = header(say)
+@table  # say = header(table(say))
+def say(name, surname, age):
+    print('hello', name, surname, age)
+
+say('Vasya', 'Ivanov', 30)
+
+# Часть 2. Потеря имени функции и потеря документации:
+# 1 - при использовании декораторов функция, которая декорируется, теряет свое имя и строки с описанием (документацию)
+# 2 - чтобы этого избежать можно выбрать два пути:
+# 2а - в функции-декораторе нужно добавить строки с пересохранением __name__ и __doc__ функции inner (сохранить значения функции-аргумента)
+# 2б - импортировать модуль wraps (from functool import wraps) и навесить декоратор @wraps на inner функцию
+print('Потеря имени функции и потеря документации:')
+ef table(func):
+ # При описывании декоратора правило - все аргументы описывать с помощью *args и **kwargs
+    def inner(*args, **kwargs):
+        print('<table>')
+        func(*args, **kwargs)
+        print('</table>')
+
+    return inner
+
+def say(name, surname, age):
+    print('hello', name, surname, age)
+
+say = table(header(say))
+say('Vasya', 'Ivanov', 30)
+
+print(say.__name__) # -> say
+say = decorator(say) # Декоратор
+print(say.__name__) # -> inner
+say()
+
 
 def sqr(x):
     """
@@ -106,6 +155,7 @@ from functools import wraps
 
 def table(func):
 
+    @wraps(func)
     def inner(*args, **kwargs):
         print('<table>')
         func(*args, **kwargs)
