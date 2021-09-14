@@ -112,3 +112,51 @@ for i in input().lower():
     if i.isalpha():
         d[i] = d.get(i, 0) + 1
 print(d)
+
+
+# В этой задаче вам предстоит достать определенные данные из словаря data. Он уже будет определен и заполнен данными, поэтому никакого ввода значений в это программе делать не нужно, просто обращаетесь к переменной data
+#
+# У словаря data следующая структура ключей
+#
+# {
+#   "my_friends": {
+#     "count": ...,
+#     "items": [
+#       {
+#         "first_name": value,
+#         "id": value,
+#         "last_name": value,
+#       },
+#       {
+#         "first_name": value,
+#         "id": value,
+#         "last_name": value,
+#       },
+#       ......
+#     ]
+#   }
+# }
+# Ваша задача получить значения ключа first_name у всех элементов и вывести их в алфавитном порядке, каждое имя с новой строки
+#
+# P.S. Если стало уж совсем трудно и непонятно, воспользуйтесь следующим:
+#
+# print(data)
+a = []
+for i in data['my_friends']['items']:
+    a.append(i['first_name'])
+a.sort()
+print(*a, sep='\n')
+
+#
+print(*sorted([i['first_name'] for i in data['my_friends']['items']]), sep='\n')
+
+#
+print(*sorted([x.get('first_name') for x in data.get('my_friends').get('items')]), sep='\n')
+
+#
+
+for i in sorted(data['my_friends']['items'], key=lambda x: x['first_name']):
+    print(i['first_name'])
+
+#
+rint(*sorted([_['first_name'] for _ in data['my_friends']['items']]), sep='\n')
