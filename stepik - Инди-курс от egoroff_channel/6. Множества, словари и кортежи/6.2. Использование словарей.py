@@ -159,4 +159,4 @@ for i in sorted(data['my_friends']['items'], key=lambda x: x['first_name']):
     print(i['first_name'])
 
 #
-rint(*sorted([_['first_name'] for _ in data['my_friends']['items']]), sep='\n')
+print(*sorted([_['first_name'] for _ in data['my_friends']['items']]), sep='\n')
