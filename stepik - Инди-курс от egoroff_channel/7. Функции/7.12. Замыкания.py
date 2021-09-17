@@ -1,5 +1,16 @@
 # Замыкания.
 # замыкания - когда функция пользуется переменными, не обявленными в ее теле.
+def main_func():
+    name = 'Ivan'
+    def inner_func():
+        print('helllo my friend', name)
+
+    return inner_func
+
+r = main_func('Misha')
+v = main_func('Vasya')
+
+
 def main_func(name):
 
     def inner_func():
@@ -9,8 +20,6 @@ def main_func(name):
 
 main_func('Ivan')
 
-r = main_func('Misha')
-v = main_func('Vasya')
 
 def adder(value):
 
@@ -19,6 +28,7 @@ def adder(value):
 
     return inner
 
+# scope - область видимости
 a2 = adder(2)
 
 print(a2(5))
@@ -61,11 +71,12 @@ def average_numbers():
     return inner
 
 r1 = average_numbers()
-print(r1(5))
-print(r1(10))
+print(r1(5)) # 5.0
+print(r1(10)) # 7.5
 
+# Новая область видимости (функция переопределена)
 d2 = average_numbers()
-print(d2(100))
+print(d2(100)) # 100
 
 def average_numbers1():
     summa = 0
@@ -81,14 +92,22 @@ def average_numbers1():
     return inner
 
 k = average_numbers1()
-print(k(10))
-print(k(20))
-print(k(30))
+print(k(10)) # 10
+print(k(20)) # 15
+print(k(30)) # 20
 
 # Функция - таймер:
 print('Функция - таймер:')
 from datetime import datetime
 from time import perf_counter
+def timer():
+    start = datetime.now()
+
+    def inner():
+        return datetime.now() - start
+
+    return inner
+
 
 def timer():
     start = perf_counter()
@@ -102,11 +121,12 @@ r = timer()
 print(r())
 print(r())
 
-#
-def add(a, b):
+# Выполняет операцию и считает, сколько раз была вызвана функция
+print('Выполняет операцию и считает, сколько раз была вызвана функция')
+def add(a, b): # функция сложения
     return a + b
 
-def mult(a, b, c):
+def mult(a, b, c): # функция умножения
     return a*b*c
 
 def counter(func):
