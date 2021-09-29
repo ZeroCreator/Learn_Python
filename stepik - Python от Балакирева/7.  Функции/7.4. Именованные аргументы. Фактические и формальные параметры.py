@@ -112,3 +112,105 @@ def check_password(st, chars='$%!?@#'):
 # ее работы на экран):
 # - первый раз только со строкой
 # - второй раз со строкой и именованным аргументом sep со значением '+'.
+t = {'ё': 'yo', 'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd', 'е': 'e', 'ж': 'zh',
+     'з': 'z', 'и': 'i', 'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n', 'о': 'o', 'п': 'p',
+     'р': 'r', 'с': 's', 'т': 't', 'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch', 'ш': 'sh',
+     'щ': 'shch', 'ъ': '', 'ы': 'y', 'ь': '', 'э': 'e', 'ю': 'yu', 'я': 'ya'}
+
+
+def change_line(line, sep='-'):
+    line = line.lower()
+    st = ""
+    for i in line:
+        if i not in t:
+            if i == " ":
+                st+=sep
+            else:
+                st+=i
+        else:
+            st += t[i]
+    return st
+
+
+r = input()
+print(change_line(r))
+print(change_line(r, sep="+"))
+
+
+#
+def kir_lat(st, sep='-'):
+    lst = ''.join([t[i] if i in t else i for i in st ]).replace(' ', sep)
+    return lst
+
+
+st = input().lower()
+print(kir_lat(st))
+print(kir_lat(st, sep='+'))
+
+#
+def ru_en(st, sep='-'):
+    return ''.join([t[i] if i in t else sep if i == ' ' else i for i in st])
+
+st = input().lower()
+print(ru_en(st))
+print(ru_en(st, sep='+'))
+
+
+#
+def word_change(word):
+    return ''.join([t[x] if x in t.keys() else x for x in word])
+
+
+def kir_to_lat(words, sep='-'):
+    return sep.join([word_change(word.lower()) for word in words.split()])
+
+
+
+
+# Объявите функцию, которая принимает строку и заключает ее в указанный тег. Тег определяется формальным параметров tag
+# с начальным значением в виде строки "h1". Например, мы передаем строку "Hello Python" и заключаем в тег "h1".
+# На выходе должны получить строку (без кавычек):
+# "<h1>Hello Python</h1>"
+# То есть, сначала открывается тег <h1>, а в конце строки - закрывается </h1>. И так для любых указанных тегов.
+# После объявления функции прочитайте (с помощью функции input) строку и дважды вызовите функцию
+# (с выводом результата ее работы на экран):
+# - первый раз только со строкой
+# - второй раз со строкой и именованным аргументом tag со значением 'div'.
+def add_tag(string, tag='h1'):
+    return f"<{tag}>{string}</{tag}>"
+
+string = input()
+
+print(add_tag(string))
+print(add_tag(string, tag='div'))
+
+
+# Функции из предыдущего подвига 5 добавьте еще один формальный параметр up с начальным булевым значением True.
+# Если параметр up равен True, то тег (указанный в формальном параметре tag) следует записывать заглавными буквами,
+# а иначе - малыми.
+# После объявления функции прочитайте (с помощью функции input) строку и дважды вызовите функцию
+# (с выводом результата ее работы на экран):
+# - первый раз со строкой и именованным аргументом tag со значением 'div'
+# - второй раз со строкой, именованным аргументом tag со значением 'div' и именованным аргументом up со значением False.
+def add_tag(string, tag='h1', up=True):
+    if up:
+        tag = tag.upper()
+    return f"<{tag}>{string}</{tag}>"
+
+string = input()
+
+
+print(add_tag(string, tag='div'))
+print(add_tag(string, tag='div', up=False))
+
+
+#
+def tagged_st(st, tag='h1', up=True):
+    tag = tag.upper() if up else tag
+    return f"<{tag}>{st}</{tag}>"
+
+st = input()
+
+print(tagged_st(st, tag='div'))
+print(tagged_st(st, tag='div', up=False))
+
