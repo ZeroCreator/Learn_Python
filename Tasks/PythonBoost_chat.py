@@ -31,3 +31,13 @@ a_dict = {}
 a_dict[1] = 'foo'
 a_dict[True] = 'bar'
 print(a_dict)
+
+
+
+
+def num_in(m):
+    if sorted(set([i for i in m])) == list('0123456789'):
+        return True
+    return False
+
+print(num_in(input()))
