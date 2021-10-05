@@ -1,6 +1,7 @@
 # Тестирование функций на скорость работы
 import time
 
+
 def test_time(func):
     def wrapper(*args, **kwargs):
         st = time.time()
@@ -17,7 +18,7 @@ def test_time(func):
 def get_nod(a, b):
     while a != b:
         if a > b:
-            a -=b
+            a -= b
         else:
             b -= a
         return a
@@ -33,11 +34,11 @@ def get_fast_nod(a, b):
     return a
 
 
-#get_nod = test_time(get_nod)
-#get_fast_nod = test_time(get_fast_nod)
+# get_nod = test_time(get_nod)
+# get_fast_nod = test_time(get_fast_nod)
 
-res = get_nod(2, 1000000)
-print(res)
+r = get_nod(2, 10000000000)
+print(r)
 
-res2 = get_fast_nod(2, 1000000)
-print(res2)
+r2 = get_fast_nod(2, 10000000000)
+print(r2)
