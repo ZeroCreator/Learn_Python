@@ -34,10 +34,18 @@ print(a_dict)
 
 
 
-
-def num_in(m):
-    if sorted(set([i for i in m])) == list('0123456789'):
+"""
+def is_pandigital(m):
+    if sorted(set([i for i in m])) == list('0123456789'):   # is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
         return True
     return False
 
-print(num_in(input()))
+print(is_pandigital(input()))
+"""
+
+def is_pandigital():
+    if sorted(set([i for i in input()])) == list('0123456789'):   # is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
+        return True
+    return False
+
+is_pandigital()
