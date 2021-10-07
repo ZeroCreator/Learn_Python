@@ -18,7 +18,7 @@ def sin_df(x):
     return math.sin(x)
 
 
-#f = df_decorator(dx=0.001)
+#df = df_decorator(dx=0.001)
 #sin_df = f(sin_df)
 # Это тоже самое, что и :
 sin_df = df_decorator(dx=0.001)(sin_df)
@@ -78,3 +78,25 @@ def sin_df(x):
 
 print(sin_df.__name__)
 print(sin_df.__doc__)
+
+
+#
+print("Tasks")
+#  Вводится строка целых чисел через пробел. Напишите функцию, которая преобразовывает эту строку в список чисел и
+#  возвращает их сумму.
+# Определите декоратор для этой функции, который имеет один параметр start - начальное значение суммы.
+# Примените декоратор со значением start=5 к функции и вызовите декорированную функцию для введенной строки s:
+# s = input()
+# Результат отобразите на экране.
+def decorator(start=5):
+    def func_decorator(func):
+        @wraps(func)
+        def wrapper(x, *args, **kwargs):
+            return func()
+        return wrapper
+    return func_decorator
+
+
+def get_sum(s):
+    s = list(map(int, input().split()))
+    return sum(*s)
