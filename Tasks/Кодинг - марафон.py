@@ -273,18 +273,20 @@ if __name__ == "__main__":
 # Примечание. Как вы видели в примере 3, если матрица пуста, верните -1.
 
 def harry(two_dimensional_list: list) -> int:
-    """ Функция в двумерном списке рассчитывает сумму первых значений каждого вложенного
-    списка и всех остальных значений последнего вложенного списка
+    """ Функция рассчитывает сумму значений соседних ячеек в матрице при движении сверху-вниз.
     :param two_dimensional_list: матричный двухмерный список
-    :return: сумма значений, если список не пустой, иначе: -1
+    :return: максимальная сумма значений, если список не пустой, иначе -1
     """
-    if len(two_dimensional_list) > 1:
-        sum_first_values: int = 0
-        sum_last_list = sum(two_dimensional_list[-1])
-        for i in two_dimensional_list[:-1]:
-            sum_first_values += i[0]
-        return sum_first_values + sum_last_list
-    return -1
+    n = len(two_dimensional_list)
+    m = len(two_dimensional_list[0])
+    computed_array = [[0 for i in range(m + 1)] for j in range(n + 1)]
+    for i in range(1, n + 1):
+        for j in range(1, m + 1):
+            computed_array[i][j] = two_dimensional_list[i - 1][j - 1] + max(computed_array[i - 1][j],
+                                                                            computed_array[i][j - 1])
+    maximum_result = computed_array[-1][-1]
+    return -1 if maximum_result == 0 else maximum_result
+
 
 
 print(harry([[5, 2], [5, 2]]))
