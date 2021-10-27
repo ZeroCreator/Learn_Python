@@ -43,7 +43,7 @@ def is_pandigital(m):
 print(is_pandigital(input()))
 """
 
-def is_pandigital():
+def is_pandigital(m):
     if sorted(set([i for i in input()])) == list('0123456789'):   # is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]:
         return True
     return False
