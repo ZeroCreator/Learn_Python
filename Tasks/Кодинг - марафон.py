@@ -350,11 +350,13 @@ animals = ["dog", "cat", "bat", "cock", "cow", "pig",
            "frog", "hen", "mole", "duck", "goat"]
 def count_animals(txt):
     counts = []
-    def f(t, c):
-        for a in animals:
-            s = t
-            for x in a: s = s.replace(x, "", 1)
-            if len(s) + len(a) == len(t): f(s, c + 1)
+    def f(txt, c):
+        for i in animals:
+            s = txt
+            for x in i:
+                s = s.replace(x, "", 1)
+            if len(s) + len(i) == len(txt):
+                f(s, c + 1)
         counts.append(c)
     f(txt, 0)
     return max(counts)
