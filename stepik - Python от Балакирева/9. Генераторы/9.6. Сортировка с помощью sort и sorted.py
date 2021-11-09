@@ -71,5 +71,19 @@ def get_sort(d):
     return [v for k, v in sorted(d.items(), reverse=True)]
 
 
+# На вход программы поступает список целых чисел, записанных в одну строчку через пробел. Необходимо выбрать из них
+# четыре наибольших уникальных значения. Результат вывести на экран в порядке их убывания в одну строчку через пробел.
+# Sample Input:
+# 10 5 4 -3 2 0 5 10 3
+# Sample Output:
+# 10 5 4 3
+lst = sorted(set(map(int, input().split())), reverse=True)
+print(*[lst[i] for i in range(4)])
+
+#
+print(*sorted(set(map(int, input().split())), reverse=True)[:4])
+
+
+
 
 

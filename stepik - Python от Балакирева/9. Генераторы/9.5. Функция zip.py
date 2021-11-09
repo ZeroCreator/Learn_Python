@@ -10,7 +10,7 @@ print(*z)
 a = [1, 2, 3, 4]
 b = [5, 6, 7, 8, 9, 10]
 c = "python"
-z =tuple(zip(a, b, c))
+z = tuple(zip(a, b, c))
 # print(z)
 for v1, v2, v3 in z:
     print(v1, v2, v3)
