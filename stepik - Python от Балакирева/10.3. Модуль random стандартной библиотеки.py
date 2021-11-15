@@ -95,3 +95,4 @@ print(*random.sample(input().split(), 3))
 # P.S. Для координат единиц используйте функцию randint()
 N = int(input())
 P = [[0] * N for i in range(N)]
+M = 10
