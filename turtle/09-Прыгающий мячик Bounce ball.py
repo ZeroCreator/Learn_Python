@@ -28,7 +28,7 @@ randx = random.randint(-290, 290)
 randy = random.randint(-290, 290)
 ball.goto(randx, randy)
 ball.showturtle()
-# прирост скорости по  x
+# прирост скорости по осям x и y
 dx = 3
 dy = 2
 
