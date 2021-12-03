@@ -10,13 +10,13 @@ def chooseRandomColor():
 
 window = turtle.Screen()
 bob = turtle.Turtle()
-# bob.color(chooseRandomColor())
-# bob.forward(100)
+bob.color(chooseRandomColor())
+bob.forward(100)
 
 while True:
     # window.bgcolor(random.choice(colors))
     # window.bgcolor(RED GREEN BLUE --> RGB)
-    chooseRandomColor()
+    window.bgcolor(chooseRandomColor())
     time.sleep(1)
 
 window.mainloop()
