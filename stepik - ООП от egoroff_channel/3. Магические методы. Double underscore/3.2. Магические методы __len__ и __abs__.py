@@ -1,4 +1,17 @@
 # Магические методы __len__ и __abs__
+print('pet'.__len__())
+print(-78.05.__abs__())
+
+class Person:
+    def __init__(self, name, surname):
+        self.name = name
+        self.surname = surname
+
+    def __len__(self):
+        return len(self.name + self.surname)
+
+b = Person("aa", "bbb")
+print(len(b))
 #part 1
 def __init__(self, name, surname):
     self.name = name
@@ -40,3 +53,24 @@ b = Point(3, 4)
 ab = Otrezok(a, b)
 print(abs(ab))
 print(ab)
+
+
+
+class Otrezok():
+    def __init__(self, point1, point2):
+        self.x1 = point1
+        self.x2 = point2
+
+    def __len__(self):
+        return abs(self) # self.__abs__()
+
+    def __abs__(self):
+        return abs(self.x2 - self.x1)
+
+
+a = Point(0, 0)
+b = Point(3, 4)
+q = Otrezok(3, 9)
+w = Otrezok(10, 2)
+print(abs(w))
+print(len(w))
