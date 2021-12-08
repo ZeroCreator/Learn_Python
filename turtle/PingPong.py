@@ -1,6 +1,7 @@
 # Пинг-Понг (Ping Pong) на Python. Часть 1.
 # рисуем стол
 import turtle
+from random import choice, randint
 
 window = turtle.Screen()
 window.title("PingPong")
@@ -74,11 +75,42 @@ def move_down_b():
         y = -250
     rocket_b.sety(y)
 
+
+# создание мяча
+ball = turtle.Turtle()
+ball.shape("circle")
+ball.speed(0)
+ball.color("red")
+ball.dx = 3
+ball.dy = -3
+ball.penup()
+
 window.listen()
 window.onkeypress(move_up, "w")
 window.onkeypress(move_down, "s")
 window.onkeypress(move_up_b, "o")
 window.onkeypress(move_down_b, "k")
+
+while True:
+    window.update()
+    ball.setx(ball.xcor() + ball.dx)
+    ball.sety(ball.ycor() + ball.dy)
+
+    if ball.ycor() >= 290:
+        ball.dy = -ball.dy
+
+    if ball.ycor() <= - 290:
+        ball.dy = -ball.dy
+
+    if ball.xcor() >= 490:
+        ball.goto(0, randint(-150, 150))
+        ball.dx = choice([-4, -3, -2, 2, 3, 4])
+        ball.dy = choice([-4, -3, -2, 2, 3, 4])
+
+    if ball.xcor() <= - 490:
+        ball.goto(0, randint(-150, 150))
+        ball.dx = choice([-4, -3, -2, 2, 3, 4])
+        ball.dy = choice([-4, -3, -2, 2, 3, 4])
 
 
 window.mainloop()
