@@ -1,4 +1,4 @@
-# Пинг-Понг (Ping Pong) на Python. Часть 1.
+# Пинг-Понг (Ping Pong) на Python.
 # рисуем стол
 import turtle
 from random import choice, randint
