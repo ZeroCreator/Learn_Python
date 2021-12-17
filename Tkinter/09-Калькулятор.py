@@ -8,8 +8,10 @@ def add_digit(digit):
     value = calc.get()
     if value[0] == '0' and len(value) == 1:
         value = value[1:]
+    calc['state'] = tk.NORMAL
     calc.delete(0, tk.END)
     calc.insert(0, value + digit)
+    calc['state'] = tk.DISABLED
 
 
 # функция ввода операций калькуляции
@@ -20,8 +22,10 @@ def add_operation(operation):
     elif '+' in value or '-' in value or '/' in value or '*' in value:
         calculate()
         value = calc.get()
+    calc['state'] = tk.NORMAL
     calc.delete(0, tk.END)
     calc.insert(0, value + operation)
+    calc['state'] = tk.DISABLED
 
 
 # функция выведения результата вычисления
@@ -29,6 +33,7 @@ def calculate():
     value = calc.get()
     if value[-1] in '+-/*':
         value = value + value[:-1]
+    calc['state'] = tk.NORMAL
     calc.delete(0, tk.END)
     try:
         calc.insert(0, eval(value))
@@ -38,12 +43,14 @@ def calculate():
     except ZeroDivisionError:
         messagebox.showinfo('Внимание', 'На ноль делить нельзя!!!')
         calc.insert(0, 0)
-
+    calc['state'] = tk.DISABLED
 
 # функция очистки окна ввода
 def clear():
+    calc['state'] = tk.NORMAL
     calc.delete(0, tk.END)
     calc.insert(0, 0)
+    calc['state'] = tk.DISABLED
 
 
 # обработка цифровых кнопок
@@ -93,6 +100,7 @@ win.iconphoto(False, photo)
 # поле ввода
 calc = tk.Entry(win, justify=tk.RIGHT, font=('Arial', 15), width=15)
 calc.insert(0, '0')
+calc['state'] = tk.DISABLED
 calc.grid(row=0, column=0, columnspan=4, stick='we', padx=5, pady=2)
 
 # оформление цифровых кнопок
