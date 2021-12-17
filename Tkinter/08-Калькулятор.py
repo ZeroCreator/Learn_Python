@@ -33,13 +33,16 @@ def make_calc_button(calc):
 
 
 win = tk.Tk()
-win.geometry(f"240x310+100+200")
+win.geometry(f"240x270+100+200")
 win['bg'] = '#33ffe6'
 win.title('Калькулятор')
 
+photo = tk.PhotoImage(file="calc.png")
+win.iconphoto(False, photo)
+
 calc = tk.Entry(win, justify=tk.RIGHT, font=('Arial', 15), width=15)
 calc.insert(0, '0')
-calc.grid(row=0, column=0, columnspan=4, stick='we', padx=5)
+calc.grid(row=0, column=0, columnspan=4, stick='we', padx=5, pady=2)
 
 make_digit_button('1').grid(row=1, column=0, stick='wens', padx=5, pady=5)
 make_digit_button('2').grid(row=1, column=1, stick='wens', padx=5, pady=5)
@@ -65,7 +68,7 @@ win.grid_columnconfigure(2, minsize=60)
 win.grid_columnconfigure(3, minsize=60)
 
 
-win.grid_rowconfigure(0, minsize=60)
+# win.grid_rowconfigure(0, minsize=60)
 win.grid_rowconfigure(1, minsize=60)
 win.grid_rowconfigure(2, minsize=60)
 win.grid_rowconfigure(3, minsize=60)
