@@ -1,6 +1,14 @@
-# Minesweeper in Python Tkinter
+#  Minesweeper in Python Tkinter
 # Игра "Сапер" на Python, создаем игровое поле.
 import tkinter as tk
+
+
+class MyButton(tk.Button):
+
+    def __init__(self):
+
+    def __repr__(self):
+        return "MyButton"
 
 
 class MineSweeper:
@@ -13,7 +21,7 @@ class MineSweeper:
         for i in range(MineSweeper.ROW):
             temp = []  # временный список
             for j in range(MineSweeper.COLUMN):
-                btn = tk.Button(MineSweeper.window, width=3, font='Calibri 15 bold')
+                btn = MyButton(MineSweeper.window, width=3, font='Calibri 15 bold')
                 temp.append(btn)
             self.buttons.append(temp)
 
@@ -25,7 +33,7 @@ class MineSweeper:
 
     def start(self):
         self.create_widgets()
-        self.print_buttons
+        self.print_buttons()
         MineSweeper.window.mainloop()
 
 
