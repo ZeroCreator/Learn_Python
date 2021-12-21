@@ -1,5 +1,5 @@
 #  Minesweeper in Python Tkinter
-# Игра "Сапер" на Python, класс MyButton.
+# Игра "Сапер" на Python, класс  MineSwepper.
 import tkinter as tk
 
 
