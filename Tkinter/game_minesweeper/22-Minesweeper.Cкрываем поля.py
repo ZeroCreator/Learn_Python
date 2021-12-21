@@ -5,11 +5,17 @@ from random import shuffle
 
 # online color picker
 colors = {
-    1: '#33668a',
-    2: '#468530',
-    3: '#5e3191',
-    4: '#916631',
+    0: 'white',
+    1: '#2403ff',
+    2: '#2db504',
+    3: '#8300f5',
+    4: '#ff9203',
+    5: '#81ff03',
+    6: '#02f7f3',
+    7: '#fc03ca',
+    8: '#f7f702',
 }
+
 
 class MyButton(tk.Button):
 
@@ -46,8 +52,13 @@ class MineSweeper:
         if clicked_button.is_mine:
             clicked_button.config(text='*', background='red', disabledforeground='black')
         else:
-            clicked_button.config(text=clicked_button.number, disabledforeground='black')
+            color = colors.get(clicked_button.count_bomb, 'black')
+            if clicked_button.count_bomb:
+                clicked_button.config(text=clicked_button.count_bomb, disabledforeground=color)
+            else:
+                clicked_button.config(text='', disabledforeground=color)
         clicked_button.config(state='disabled')  # выключение повторного нажатия кнопки
+        clicked_button.config(relief=tk.SUNKEN) # эффект нажатия кнопки
 
     # отрисовка виджетов
     def create_widgets(self):
@@ -62,10 +73,6 @@ class MineSweeper:
                 btn = self.buttons[i][j]
                 if btn.is_mine:
                     btn.config(text='*', background='red', disabledforeground='black')
-                # elif btn.count_bomb == 1:
-                #     btn.config(text=btn.count_bomb, fg='blue', disabledforeground='black')
-                # elif btn.count_bomb == 21:
-                #     btn.config(text=btn.count_bomb, fg='green', disabledforeground='black')
                 elif btn.count_bomb in colors:
                     color = colors.get(btn.count_bomb, 'black')
                     btn.config(text=btn.count_bomb, fg=color)
@@ -75,7 +82,7 @@ class MineSweeper:
         self.insert_mines()
         self.count_mines_in_buttons()
         self.print_buttons()
-        self.open_all_buttons()
+        # self.open_all_buttons()
         print(self.get_mines_places())
         MineSweeper.window.mainloop()
 
@@ -89,7 +96,6 @@ class MineSweeper:
                 else:
                     print(btn.count_bomb, end='')
             print()
-
 
     # метод для вставки мин
     def insert_mines(self):
