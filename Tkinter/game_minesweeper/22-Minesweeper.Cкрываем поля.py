@@ -1,5 +1,5 @@
 # Minesweeper in Python Tkinter
-# Игра "Сапер" на Python, добавляем цвет.
+# Игра "Сапер" на Python, скрываем поля.
 import tkinter as tk
 from random import shuffle
 
