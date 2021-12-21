@@ -25,14 +25,24 @@ class MineSweeper:
 
     def __init__(self):
         self.buttons = []
-        count = 1 # счетчик для нумерации кнопок
+        count = 1  # счетчик для нумерации кнопок
         for i in range(MineSweeper.ROW):
             temp = []  # временный список
             for j in range(MineSweeper.COLUMN):
                 btn = MyButton(MineSweeper.window, x=i, y=j, number=count)
+                btn.config(command=lambda button=btn: self.click(button))
                 temp.append(btn)
-                count += 1 # счетчик для нумерации кнопок
+                count += 1  # счетчик для нумерации кнопок
             self.buttons.append(temp)
+
+    # функция для обработки кнопок
+    def click(self, clicked_button: MyButton):
+        if clicked_button.is_mine:
+            clicked_button.config(text='*', background='red', disabledforeground='black')
+        else:
+            clicked_button.config(text=clicked_button.number, disabledforeground='black')
+        clicked_button.config(state='disabled') # выключение повторного нажатия кнопки
+
 
     def create_widgets(self):
         for i in range(MineSweeper.ROW):
