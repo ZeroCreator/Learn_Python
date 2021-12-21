@@ -5,11 +5,13 @@ class Vector:
     MIN_COORD = 0
     MAX_COORD = 100
 
+
     def setCoords(self, x, y):
         if Vector.validate(x) and Vector.validate(y):
             self.x = x
             self.y = y
             return x, y
+
 
     @classmethod
     def validate(cls, arg):
@@ -18,9 +20,19 @@ class Vector:
         return False
 
 
+    def __init__(self, x, y):
+        self.x = self.y = 0
+        if self.validate(x) and self.validate(y):
+            self.x = x
+            self.y = y
+
+
+    def get_coord(self):
+        return self.x, self.y
+
     @staticmethod
     def norm2(x, y):
-        return x*x + y*y
+        return x*x + y*y #+ Vector.MAX_COORD
 
 
 c = Vector.validate(5)
