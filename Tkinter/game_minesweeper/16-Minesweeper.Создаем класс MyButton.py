@@ -1,5 +1,5 @@
 #  Minesweeper in Python Tkinter
-# Игра "Сапер" на Python, расставляем мины.
+# Игра "Сапер" на Python, создаем класс MyButton.
 import tkinter as tk
 
 
