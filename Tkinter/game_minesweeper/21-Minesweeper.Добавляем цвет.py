@@ -3,6 +3,13 @@
 import tkinter as tk
 from random import shuffle
 
+# online color picker
+colors = {
+    1: '#33668a',
+    2: '#468530',
+    3: '#5e3191',
+    4: '#916631',
+}
 
 class MyButton(tk.Button):
 
@@ -55,8 +62,13 @@ class MineSweeper:
                 btn = self.buttons[i][j]
                 if btn.is_mine:
                     btn.config(text='*', background='red', disabledforeground='black')
-                else:
-                    btn.config(text=btn.count_bomb, disabledforeground='black')
+                # elif btn.count_bomb == 1:
+                #     btn.config(text=btn.count_bomb, fg='blue', disabledforeground='black')
+                # elif btn.count_bomb == 21:
+                #     btn.config(text=btn.count_bomb, fg='green', disabledforeground='black')
+                elif btn.count_bomb in colors:
+                    color = colors.get(btn.count_bomb, 'black')
+                    btn.config(text=btn.count_bomb, fg=color)
 
     def start(self):
         self.create_widgets()
@@ -67,9 +79,17 @@ class MineSweeper:
         print(self.get_mines_places())
         MineSweeper.window.mainloop()
 
+    # вывод кнопок в консоль
     def print_buttons(self):
-        for row_btn in self.buttons:
-            print(row_btn)
+        for i in range(1, MineSweeper.ROW + 1):
+            for j in range(1, MineSweeper.COLUMN + 1):
+                btn = self.buttons[i][j]
+                if btn.is_mine:
+                    print('B', end='')
+                else:
+                    print(btn.count_bomb, end='')
+            print()
+
 
     # метод для вставки мин
     def insert_mines(self):
