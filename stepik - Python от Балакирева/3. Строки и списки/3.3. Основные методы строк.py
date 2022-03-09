@@ -57,7 +57,7 @@ digs = "1, 2, 3,4,   5, 6"
 s = digs.replace(" ", "").split(",")
 print(s)
 
-print("Метод string.split() - из списка строк собирает единую строку")
+print("Метод " ".join(string) - из списка строк собирает единую строку")
 print(", ".join(s))
 fio = "Иванов Иван Иванович"
 print(", ".join(fio.split()))
