@@ -15,7 +15,7 @@ print(msg.count("ra", 4))
 print(msg.count("ra", 4, 10))
 print(msg.count("ra", 4, 11))
 
-print("Метод find.count() - нахождения индекса подстроки в строке слева - направо")
+print("Метод string.find() - нахождения индекса подстроки в строке слева - направо")
 print(msg.find("br"))
 print(msg.find("br", 2))
 print(msg.find("br", 2, 8))
