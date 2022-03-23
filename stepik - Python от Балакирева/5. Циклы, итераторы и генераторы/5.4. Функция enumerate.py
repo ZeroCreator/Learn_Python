@@ -301,6 +301,21 @@ try:
 except:
   print('НЕТ')
 
+#
+s = input()
+t = ''.join([c for c in s if c.isdigit()])
+print('ДА' if f'+7({t[1:4]}){t[4:7]}-{t[7:9]}-{t[9:]}' == s else 'НЕТ')
+
+#
+s=list(input())
+for i in range(2,len(s)):
+  if s[i].isdigit():
+    s[i] = '1'
+if ''.join(s)=='+7(111)111-11-11': print('ДА')
+else: print('НЕТ')
+
+
+
 
 
 

@@ -133,76 +133,39 @@ print(('понедельник', 'вторник', 'среда', 'четверг
 # P.S. Число дней в месяцах не високосного года, начиная с января: 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
 
 # пока не верный код
-m, n = map(int,input().split())
+days = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+b, a = map(int, input().split())
+if a == 1:
+    pday = days[b-2]
+    pmh = b - 1
+    fday = 2
+    fmh = b
+elif a == days[b-1]:
+    pday = a - 1
+    pmh = b
+    fday = 1
+    fmh = b + 1
+else:
+    pday = a - 1
+    pmh = b
+    fday = a + 1
+    fmh = b
+print(f"{str(pmh).rjust(2, '0')}.{str(pday).rjust(2, '0')} {str(fmh).rjust(2, '0')}.{str(fday).rjust(2, '0')}")
 
-m31 = [1, 5, 7, 8, 10, 12]
-m30 = [4, 6, 9, 11]
-m28 = [2]
-m3 = [3]
-if m in m31:
-    if 2 <= n <= 30:
-        n = n - 1
-        n1 = n + 2
-        print(f"{m:02}.{n:02} {m:02}.{n1:02}")
-    elif n == 1:
-        m = m - 1
-        n = 30
-        m1 = m + 1
-        n1 = 2
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-    elif n == 31:
-        n = n - 1
-        m1 = m + 1
-        n1 = 1
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-if m in m30:
-    if 2 <= n <= 29:
-        n = n - 1
-        n1 = n + 2
-        print(f"{m:02}.{n:02} {m:02}.{n1:02}")
-    elif n == 1:
-        m = m - 1
-        n = 29
-        m1 = m + 1
-        n1 = 2
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-    elif n == 29:
-        n = n - 1
-        m1 = m + 1
-        n1 = 1
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-if m in m28:
-    if 2 <= n <= 27:
-        n = n - 1
-        n1 = n + 2
-        print(f"{m:02}.{n:02} {m:02}.{n1:02}")
-    elif n == 1:
-        m = m - 1
-        n = 27
-        m1 = m + 1
-        n1 = 2
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-    elif n == 28:
-        n = n - 1
-        m1 = m + 1
-        n1 = 1
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-if m in m3:
-    if 2 <= n <= 30:
-        n = n - 1
-        n1 = n + 2
-        print(f"{m:02}.{n:02} {m:02}.{n1:02}")
-    elif n == 1:
-        m = m - 1
-        n = 28
-        m1 = m + 1
-        n1 = 2
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
-    elif n == 30:
-        n = n - 1
-        m1 = m + 1
-        n1 = 1
-        print(f"{m:02}.{n:02} {m1:02}.{n1:02}")
+#
+m, n = map(int, input().split())
+lst = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+if n == 1:
+    print(f'{m - 1:02}.{lst[m - 2]} {m:02}.{n + 1:02}')
+elif n == lst[m - 1]:
+    print(f'{m:02}.{n - 1:02} {m + 1:02}.01')
+else:
+    print(f'{m:02}.{n - 1:02} {m:02}.{n + 1:02}')
 
 
+#
+l = (31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31)
+m, d = map(int, input().split())
+print((f'{m:02d}.{d - 1:02d}', f'{m - 1:02d}.{l[m - 2]:02d}')[d == 1], (f'{m:02d}.{d + 1:02d}', f'{m + 1:02d}.{1:02d}')[l[m - 1] < d + 1])
 
