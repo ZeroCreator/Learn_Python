@@ -150,5 +150,53 @@ for i in range(n):
 for row in mtx:
     print(*row)
 
+#Подвиг 2. Вводится список из URL-адресов (каждый с новой строки). Требуется в них заменить все пробелы на символ
+# дефиса (-). Следует учесть, что может быть несколько подряд идущих пробелов. Результат преобразования вывести на
+# экран в виде строк из URL-адресов.
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+for i, line in enumerate(lst_in):
+    while line.count('  '):
+        line = line.replace('  ', ' ')
+    line = line.replace(' ', '-')
+    lst_in[i] = line
+
+for i in lst_in:
+    print(i)
+
+#
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+for i in lst_in:
+    print('-'.join(i.split()))
+
+#
+import sys
+
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+for line in lst_in:
+    while '  ' in line:
+        line = line.replace('  ', ' ')
+    line = line.replace(' ', '-')
+    print(line)
+
+#
+import sys
+
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+[print("-".join(i.split())) for i in lst_in]
+
+#
+import sys
+print('-'.join(sys.stdin.read().replace('\n', 'o_O').split()).replace('o_O', '\n'))
+
 
 
