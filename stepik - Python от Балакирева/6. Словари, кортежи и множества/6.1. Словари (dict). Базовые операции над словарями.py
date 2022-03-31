@@ -108,3 +108,91 @@ print(*sorted({k: int(v) for pair in input().split() for k, v in [pair.split('='
 d = dict([[i.split('=')[0], int(i.split('=')[1])] for i in input().split()])
 print(*sorted(d.items()))
 
+# Подвиг 4. На вход программы поступают данные в виде набора строк в формате:
+# ключ1=значение1
+# ключ2=значение2
+# ...
+# ключN=значениеN
+# Ключами здесь выступают целые числа (см. пример ниже). Необходимо их преобразовать в словарь d
+# (без использования функции dict()) и вывести его на экран командой:
+# print(*sorted(d.items()))
+lst_in = ['5=отлично', '4=хорошо', '3=удовлетворительно']
+d = dict((int(x.split("=")[0]), x.split("=")[1])for x in lst_in)
+print(*sorted(d.items()))
+
+#
+d = {}
+for i in lst_in:
+    key, value = i.split('=')
+    d[int(key)] = value
+print(*sorted(d.items()))
+
+#
+lst = [i.split('=') for i in lst_in]
+d = {int(i): v for i, v in lst}
+print(*sorted(d.items()))
+
+# Подвиг 5. Вводятся данные в формате ключ=значение в одну строчку через пробел. Необходимо на их основе создать словарь,
+# затем проверить, существуют ли в нем ключи со значениями: 'house', 'True' и '5' (все ключи - строки). Если все они
+# существуют, то вывести на экран ДА, иначе - НЕТ.
+d = dict([i.split("=") for i in input().split()])
+if 'house' in d and 'True' in d and '5' in d:
+    print("ДА")
+else:
+    print("НЕТ")
+
+#
+d = dict([i.split('=') for i in input().split()])
+print('ДА' if 'house' in d and 'True' in d and '5' in d else 'НЕТ')
+
+#
+d = dict([i.split('=') for i in input().split()])
+check_values = ['house', 'True', '5']
+
+for i in check_values:
+    if i not in d:
+        print('НЕТ')
+        break
+else:
+    print('ДА')
+
+#
+d = dict((c.split('=') for c in input().split()))
+print(('НЕТ', 'ДА')[all(['house' in d, 'True' in d, '5' in d])])
+
+#
+d = dict([i.split('=') for i in input().split()])
+print(('НЕТ', 'ДА')['house' in d and 'True' in d and '5' in d])
+
+# Подвиг 6. Вводятся данные в формате ключ=значение в одну строчку через пробел. Необходимо на их основе создать
+# словарь d, затем удалить из этого словаря ключи 'False' и '3', если они существуют. Ключами и значениями словаря
+# являются строки. Вывести полученный словарь на экран командой:
+# print(*sorted(d.items()))
+d = dict([i.split("=") for i in input().split()])
+if "False" in d:
+    del d["False"]
+
+if "3" in d:
+    del d["3"]
+print(*sorted(d.items()))
+
+#
+d = dict([i.split('=') for i in input().split()])
+del_values = ['False', '3']
+
+for i in del_values:
+    if i in d:
+        del d[i]
+
+print(*sorted(d.items()))
+
+#
+d = dict(pair.split('=') for pair in input().split())
+for key in ('False', '3'):
+    d.pop(key, 'Да не очень то и надо')
+print(*sorted(d.items()))
+
+#
+print(*sorted(dict([i.split("=") for i in input().split() if i.split("=")[0] not in ('False', '3')]).items()))
+
+
