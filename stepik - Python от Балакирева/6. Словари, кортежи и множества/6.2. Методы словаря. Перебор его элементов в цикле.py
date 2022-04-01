@@ -54,6 +54,7 @@ print(d)
 print(d.pop("abc", False))
 
 # Метод 7. dict.popitem() - удаляет случайновыбранный ключ (последнюю созданную запись):
+print("Метод 7. dict.popitem()")
 print(d.popitem())
 
 # Метод 8. dict.keys() - возвращяет список ключей:
@@ -76,14 +77,14 @@ print("Метод 10. dict.items() - возвращает пару ключ-зн
 print(d.items())
 
 for x in d.items():
-    print(x)
+    print(x) # Список кортежей ключ - значение
 
-for key, value in d.items():
+for key, value in d.items(): # Синтаксис множественного присваивания
     print(key, value)
 
 # Метод 11. dict.update() - обновление словаря:
 print("Метод 11. dict.update() - обновление словаря:")
-d = dict(one = 1, two = 2, three = "3", four = "4")
+d = dict(one=1, two=2, three="3", four="4")
 print(d)
 d2 = {2: "неудовлетворительно", 3: "удовлетворительно", "four": "хорошо", 5: "отлично"}
 #p = d.update(d2)
@@ -98,5 +99,6 @@ print(d4)
 
 # Объединение словарей - способ 2:
 print("Объединение словарей - способ 2:")
-d | d2
+d3 = d | d2
+print(d3)
 
