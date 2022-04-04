@@ -203,5 +203,21 @@ n = int(input())
 for i in range(n):
     print(*([i] * n))
 
+# Подвиг 7. Вводится список вещественных чисел. С помощью list comprehension сформировать список,
+# состоящий из элементов введенного списка, имеющих четные индексы (то есть, выбрать все элементы с четными индексами).
+# Результат вывести на экран в одну строку через пробел.
+print(*[i for i in list(map(float, input().split()))][::2])
+
+#
+print(*[float(i) for i in input().split()][::2])
+
+#
+lst = [float(x) for i, x in enumerate(input().split()) if i % 2 == 0]
+print(*lst)
+
+#
+s = list(map(float, input().split()))
+print(*[s[i] for i in range(len(s)) if i % 2 == 0])
+
 
 
