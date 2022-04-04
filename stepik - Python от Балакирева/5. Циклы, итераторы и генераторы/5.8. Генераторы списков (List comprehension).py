@@ -240,3 +240,9 @@ a=c[::2]
 b=[int(i) for i in c[1::2]]
 print([[a[i],b[i]] for i in range(len(a))])
 
+#
+n=input().split()
+print([[n[i] , int(n[i+1])]
+        for i in range(len(n)-1)
+        if i % 2 == 0])
+
