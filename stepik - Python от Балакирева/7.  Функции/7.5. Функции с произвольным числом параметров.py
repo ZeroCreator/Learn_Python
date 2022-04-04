@@ -18,19 +18,28 @@ print(p)
 
 
 def os_path(*args, **kwargs):
-    print(kwargs)
+#    print(kwargs)
+    path = kwargs['sep'].join(args)
+    return path
 
 p = os_path("F:\\~stepik.org", "Добрый, добрый Python (Питон)", "39\\p39. Функции.docx", sep='/', trim=True)
+print(p)
+
 # *args - кортеж
 # **kwargs - словарь
 def os_path(disk, *args, sep='\\', **kwargs):
     args = (disk, ) + args
     if 'trim' in kwargs and kwargs['trim']:
         args = [x.strip() for x in args]
+
     path = sep.join(args)
     return path
 
-p = os_path("F:", " ~stepik.org ", " Добрый, добрый Python (Питон) ", " 39\\p39. Функции.docx ", sep='/', trim=True)
+p = os_path("F:",
+            " ~stepik.org ",
+            " Добрый, добрый Python (Питон) ",
+            " 39\\p39. Функции.docx ",
+            sep='/', trim=True)
 print(p)
 
 
@@ -106,7 +115,7 @@ print(str_min3("Питер", "Москва", "Самара"))
 print(str_min4("Питер", "Москва", "Самара", "Воронеж"))
 
 
-# Объявите функцию с именем get_data_fig для вычисления периметра произвольного N-угольника. На вход этой функции
+# Подвиг 5. Объявите функцию с именем get_data_fig для вычисления периметра произвольного N-угольника. На вход этой функции
 # передаются N длин сторон через аргументы. Дополнительно могут быть указаны именованные аргументы:
 # type - булево значение True/False
 # color - целое числовое значение
@@ -114,3 +123,27 @@ print(str_min4("Питер", "Москва", "Самара", "Воронеж"))
 # width - целое значение
 # Функция должна возвращать в виде кортежа периметр многоугольника и указанные значения именованных параметров в порядке
 # их перечисления (если они были переданы). Если какой-либо параметр отсутствует, его возвращать не нужно (пропустить).
+def get_data_fig(*args, **kwargs):
+    args = sum(args)
+    if 'type' in  kwargs or 'color' in kwargs or 'closed' in kwargs or 'width' in kwargs:
+        lst = [kwargs.get('type'), kwargs.get('color'), kwargs.get('closed'), kwargs.get('width')]
+#        res = [i for i in lst if i != None]
+        return (args, *[i for i in lst if i != None])
+    return args,
+
+#
+def get_data_fig(*args, **kwargs):
+    kwargs = [kwargs[i] for i in ['type', 'color', 'closed', 'width'] if i in kwargs]
+    return (sum(args), *kwargs)
+
+#
+def get_data_fig(*args, **kwargs):
+    return (sum(args),) + tuple(kwargs[i] for i in ['type', 'color', 'closed', 'width'] if i in kwargs)
+
+#
+def get_data_fig(*args, **kwargs):
+    params = ('type', 'color', 'closed', 'width')
+    return (sum(args), *(kwargs[i] for i in params if i in kwargs))
+
+#
+

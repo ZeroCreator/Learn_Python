@@ -1,5 +1,84 @@
 # Оператор return.
-#
+def send_mail(from_name, old ):
+    text = f"""Hello!
+Ваш навсегда{from_name}! 
+И не судите строго, мне всего {old} лет!"""
+    print(text)
+
+
+def get_sqrt(x):
+    res = None if x < 0 else x ** 0.5
+    print(x)
+    return res
+    print(x)
+
+a = get_sqrt(49)
+print(a)
+
+def get_sqrt(x):
+    res = None if x < 0 else x ** 0.5
+    return res, x # кортеж с данными
+
+a = get_sqrt(49)
+print(a)
+
+# Функция максимальное из двух значений
+print("Функция максимальное из двух значений")
+def get_max2(a, b):
+    return a if a > b else b
+
+x, y, z = 5, 7, 10
+print(get_max2(x, get_max2(y, z)))
+
+# Функциональный подход в программировании
+print("Функциональный подход в программировании")
+# Нахождение максимума из трех чисел
+print("Нахождение максимума из трех чисел")
+def get_max3(a, b, c):
+    return get_max2(a, get_max2(b, c))
+
+x, y, z = 5, 7, 10
+print(get_max3(x, y, z))
+
+
+PERIMETR = True
+if PERIMETR:
+    get_rect = 1
+else:
+    get_rect = 2
+
+print(get_rect)
+
+
+PERIMETR = True
+if PERIMETR:
+    def get_rect(a, b):
+        return 2 * (a + b)
+else:
+    def get_rect(a, b):
+        return a * b
+
+print(get_rect(1.5, 3.8))
+
+
+def get_rect(a, b):
+    return 2 * (a + b)
+
+def get_rect(a, b):
+    return a * b
+
+print(get_rect(1.5, 3.8)) # будет ссылаться на последнюю функцию
+
+# Функция для определения четности числа
+def even(x):
+    return x % 2 == 0
+
+for i in range(1, 20):
+    if even(i):
+        print(i, end=" ")
+
+print()
+
 print("Tasks")
 # Объявите функцию, которая принимает один аргумент (вещественное число), и возвращает квадрат этого числа.
 # После объявления функции прочитайте (с помощью функции input) вещественное число и вызовите функцию с этим значением.
