@@ -224,6 +224,17 @@ print(*[s[i] for i in range(len(s)) if i % 2 == 0])
 # введенных списков. Результат вывести на экран в одну строку через пробел.
 a = list(map(int, input().split()))
 b = list(map(int, input().split()))
+print(*[a[i] + b[i] for i in range(len(a))])
+
+#
+print(*[int(i)+int(j) for i,j in zip(input().split(),input().split())])
+
+#
+a=input().split()
+b=input().split()
+print(*[int(a[i])+int(b[i])for i in range(len(a))])
+
+
 
 # Подвиг 9. Вводится список в формате:
 # <город 1> <численность населения 1> <город 2> <численность населения 2> ... <город N> <численность населения N>
