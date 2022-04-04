@@ -146,4 +146,27 @@ def get_data_fig(*args, **kwargs):
     return (sum(args), *(kwargs[i] for i in params if i in kwargs))
 
 #
+def is_isolate(lst, i, j):
+    for x in range(-1, 2):
+        for y in range(-1, 2):
+            if i + x >= 0 and j + y >= 0 and i + x < len(lst) and j + y < len(lst[i]):
+                if lst[i + x][j + y] != 0:
+                    return False
+
+
+def verify(lst: list):
+    for i in range(len(lst)):
+        for j in range(len(lst[i])):
+            if lst[i][j] == 1 and not is_isolate(lst, i, j):
+                return True
+            return False
+
+
+
+
+print(verify([[1, 0, 0, 0, 0],
+              [0, 0, 1, 0, 0],
+              [0, 0, 0, 0, 0],
+              [0, 1, 0, 1, 0],
+              [0, 0, 0, 0, 0]]))
 

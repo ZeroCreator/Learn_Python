@@ -47,6 +47,120 @@ print({**d, **d2})
 
 #
 print("Tasks")
+# Подвиг 2. Вводится список из семи целых чисел в одну строчку через пробел. Необходимо первые четыре числа занести в
+# переменную lst, а остальные три в отдельные переменные x, y, z. Сделать с использованием оператора упаковки.
+# Вывести список lst на экран с помощью команды:
+# print(*lst)
+*lst, x, y, z = list(map(int, input().split()))
+print(*lst)
+
+#
+*lst, x, y, z = map(int, input().split())
+print(*lst)
+
+#
+*lst, x, y,z = input().split()
+print(*lst)
+
+# Подвиг 3. Вводятся названия городов в одну строчку через пробел. На основе этой строки необходимо сформировать список
+# из названий. А, затем, используя оператор распаковки *, преобразовать этот список в кортеж lst_c.
+# Результат вывести на экран командой: print(lst_c)
+lst = input().split()
+lst_c = *lst,
+print(lst_c)
+
+#
+lst_c = *input().split(),
+print(lst_c)
+
+#
+print((*input().split(),))
+
+# Подвиг 4. Вводятся два целых значения a и b (a < b) в одну строчку через пробел. Необходимо сформировать список из
+# целых чисел от a до b (включительно) с шагом изменения 1, используя функцию range, оператор [] и оператор распаковки *.
+# Вывести полученный список на экран командой: print(*lst)
+a, b = map(int, input().split())
+lst = [*range(a, b+1)]
+print(*lst)
+
+#
+a = *(map(int, input().split())),
+print(*range(a[0], a[-1] + 1))
+
+#
+print(*(lambda x, y: range(x, y + 1))(*map(int, input().split())))
+
+# Подвиг 5. Вводится список вещественных чисел и список названий городов, каждый в отдельной строке. Необходимо
+# сформировать единый список lst, в котором сначала идут числа, а затем, названия городов. Реализовать программу с
+# помощью оператор распаковки *. Вывести полученный список на экран командой: print(*lst)
+sp = map(float, input().split())
+sp1 = input().split()
+lst = (*sp, *sp1)
+print(*lst)
+
+#
+print(*input().split(), *input().split() )
+
+#
+numbers, cities = map(float, input().split()), input().split()
+lst = [*numbers, *cities]
+print(*lst)
+
+# Подвиг 6. Имеется словарь, содержащий пункты меню:
+# menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+# Дополнительно вводятся еще пункты меню в виде строк в формате:
+# название_1=url_1
+# ...
+# название_N=url_N
+# Необходимо эту введенную информацию преобразовать в словарь и добавить к словарю menu, используя оператор распаковки
+# для словарей. На результирующий словарь должна вести переменная menu. Выводить словарь не нужно, только сформировать.
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+menu = {**menu, **dict([i.split("=") for i in lst_in])}
+
+#
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+d = dict([i.split('=') for i in lst_in])
+
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+
+menu = dict(**menu, **d)
+
+#
+import sys
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+menu.update([pair.split('=') for pair in map(str.strip, sys.stdin.readlines())])
+
+#
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+d = dict(i.split('=') for i in lst_in).items()
+
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}.items()
+
+menu = dict(menu | d)
+
+#
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+menu = {'Главная': 'home', 'Архив': 'archive', 'Новости': 'news'}
+# здесь продолжайте программу (используйте список lst_in и menu)
+
+menu2 = {key: value for key, value in [i.split('=') for i in lst_in]}
+menu = {**menu, **menu2}
+
 
 
 
