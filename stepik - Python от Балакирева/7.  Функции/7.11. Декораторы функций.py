@@ -1,6 +1,5 @@
 # Декораторы функций.
 
-
 def func_decorator(func):
     def wrapper():
         print("------ что-то делаем перед вызовом функции")
