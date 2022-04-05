@@ -2,6 +2,20 @@
 # Декоратор для вычисления производных произвольных функций
 import math
 
+def func_decorator(func):
+    def wrapper(x, *args, **kwargs):
+        dx = 0.1
+        res = (func(x + dx, *args, **kwargs) - func(x, *args, **kwargs)) / dx
+        return res
+
+    return wrapper
+
+@func_decorator
+def sin_df(x):
+    return math.sin(x)
+
+df = sin_df(math.pi/3)
+print(df)
 
 def df_decorator(dx=0.01):
     def func_decorator(func):
@@ -95,7 +109,6 @@ def decorator(start=5):
             return func()
         return wrapper
     return func_decorator
-
 
 def get_sum(s):
     s = list(map(int, input().split()))
