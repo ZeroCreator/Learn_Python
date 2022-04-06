@@ -71,7 +71,7 @@ print(*list(map(abs, map(int, input().split()))))
 lst = list(map(lambda x: abs(int(x)), input().split()))
 print(*lst)
 
-# Вводится таблица целых чисел. Используя функцию map и генератор списков, преобразуйте список строк lst_in (см. листинг)
+# Подвиг 3. Вводится таблица целых чисел. Используя функцию map и генератор списков, преобразуйте список строк lst_in (см. листинг)
 # в двумерный список с именем lst2D, содержащий целые числа.
 # Выводить на экран ничего не нужно, только сформировать список lst2D на основе введенных данных.
 import sys
@@ -79,7 +79,13 @@ import sys
 # считывание списка из входного потока
 lst_in = list(map(str.strip, sys.stdin.readlines()))
 
-lst2D = map(list, )
+lst2D = list(list(map(int, i.split())) for i in lst_in)
+
+#
+lst2D = [list(map(int, i.split())) for i in lst_in]
+
+#
+lst2D = [*map(lambda x: [*map(int, x.split())], lst_in)]
 
 
 # На вход программы поступает строка в формате:

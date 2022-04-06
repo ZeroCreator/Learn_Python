@@ -46,7 +46,7 @@ def find_word(f, word):
             if indx > -1:
                 yield g_indx + indx
                 indx += 1
-        g_indx += 1
+        g_indx += len(line)
 
 try:
     with open("lesson_yield.txt", encoding="utf-8") as file:
@@ -56,3 +56,35 @@ except FileNotFoundError:
     print("Файл не найден")
 except:
     print("Ошибка обработки файла!")
+
+# Подвиг 1. Вводится натуральное число N. Необходимо определить функцию-генератор с именем get_sum, которая бы
+# возвращала текущую сумму чисел последовательности длины N в диапазоне целых чисел [1; N]. Например
+# - для первого числа 1 сумма равна 1;
+# - для второго числа 2 сумма равна 1+2 = 3
+# ....
+# - для N-го числа сумма равна 1+2+...+(N-1)+N
+def get_sum(N):
+    sum = 0
+    for i in range(1, N+1):
+        sum += i
+        yield sum
+
+
+n = int(input())
+s = get_sum(5)
+print(*list(s))
+
+#
+N = int(input())
+
+def get_sum(n):
+    yield from [sum(range(1, x + 1)) for x in range(1, n + 1)]
+
+#
+N = int(input())
+
+def get_sum(n):
+    for i in range(1, n + 1):
+        yield sum(range(1, i + 1))
+
+

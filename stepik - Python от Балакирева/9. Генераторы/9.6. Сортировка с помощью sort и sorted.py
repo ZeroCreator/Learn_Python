@@ -84,6 +84,84 @@ print(*[lst[i] for i in range(4)])
 print(*sorted(set(map(int, input().split())), reverse=True)[:4])
 
 
+# Подвиг 2. На вход поступает список целых чисел, записанных в одну строчку через пробел. Преобразуйте сначала эту
+# строку в список из целых чисел, а затем список в кортеж из целых чисел. То есть, в программе будет две разные
+# коллекции: список и кортеж. Отсортируйте по возрастанию значений эти коллекции методом sort, если это возможно,
+# а иначе - примените функцию sorted.
+# На экран ничего выводить не нужно, только сформировать две отсортированные коллекции: lst (список) - результат
+# сортировки списка; tp_lst (кортеж) - результат сортировки кортежа.
+# P. S. На результаты сортировок обязательно должны ссылаться переменные с именами lst и tp_lst!
+s = input()
+lst = list(map(int, s.split()))
+lst.sort()
+c = tuple(lst)
+tp_lst = tuple(sorted(c))
+
+#
+s = input()
+
+
+def get_sort(x):
+    try:
+        x.sort()
+        return x
+    except AttributeError:
+        return type(x)(sorted(x))
+
+
+lst = list(map(int, s.split()))
+tp_lst = tuple(map(int, s.split()))
+
+
+srt = get_sort(lst)
+tp_lst = get_sort(tp_lst)
+
+#
+s = input()
+lst = sorted(list(map(int, s.split())))
+tp_lst = tuple(lst)
+
+#
+s = input()
+
+# здесь продолжайте писать программу
+lst=list(map(int, s.split()))
+tp=tuple(map(int, s.split()))
+
+lst.sort()
+tp_lst=tuple(sorted(tp))
+
+# Подвиг 5. На вход программы поступают два списка целых чисел (каждый в отдельной строке), записанных в одну строчку
+# через пробел. Длины списков могут быть разными. Необходимо первый список отсортировать по возрастанию, а второй -
+# по убыванию. Полученные пары из обоих списков сложить друг с другом и получить новый список чисел. Результат вывести
+# на экран в виде строки чисел через пробел.
+# P. S. Подсказка: не забываем про функцию zip.
+lst1 = list(map(int, input().split()))
+lst2 = list(map(int, input().split()))
+lst1.sort()
+lst2.sort(reverse=True)
+print(*[a + b for a, b in (zip(lst1, lst2))])
+
+#
+lst1 = sorted(map(int, input().split()))
+lst2 = sorted(map(int, input().split()), reverse=True)
+
+lst = map(lambda x, y: x + y, lst1, lst2)
+print(*lst)
+
+#
+lst_1 = sorted(map(int, input().split()))
+lst_2 = sorted(map(int, input().split()))[::-1]
+
+print(*map(sum, zip(lst_1, lst_2)))
+
+#
+lst1 = sorted(map(int, input().split()))
+lst2 = sorted(map(int, input().split()), reverse = True)
+print(*[sum(i) for i in zip(lst1, lst2)])
+
+
+
 
 
 
