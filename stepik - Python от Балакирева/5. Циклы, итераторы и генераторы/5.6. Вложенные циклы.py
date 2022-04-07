@@ -281,5 +281,28 @@ for i in range(2, n):
             sieve[j] = 0
 print(*(i for i, e in enumerate(sieve) if e))
 
+#
+n = int(input())
+lst = []
+for i in range(2,n):
+    for j in range(2,i):
+        if i % j == 0:
+            break
+    else:
+        lst.append(i)
+print(*lst)
+
+#
+n = int(input())
+
+for i in range(2, n):
+    for j in range(2, i):
+        if i % j == 0:
+            break
+    else:
+        print(i, end=' ')
+
+
+
 
 
