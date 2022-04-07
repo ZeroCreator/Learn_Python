@@ -105,3 +105,7 @@ print(*sorted(input().split(), key=lambda x: d[x]))
 #
 notes = ('до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си')
 print(*sorted(input().split(), key=notes.index))
+
+#
+print(*sorted(input().split(), key=lambda x: ['до', 'ре', 'ми', 'фа', 'соль', 'ля', 'си'].index(x)))
+
