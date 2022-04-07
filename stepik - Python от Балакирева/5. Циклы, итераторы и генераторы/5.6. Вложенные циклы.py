@@ -254,7 +254,32 @@ print(["НЕТ","ДА"][fl])
 
 
 
+# Подвиг 3. Вводится натуральное число n. Необходимо найти все простые числа, которые меньше этого числа n, то есть,
+# в диапазоне [2; n). Результат вывести на экран в строчку через пробел. (Решето Эратосфена).
+n = int(input())
+a = [True] * n
+for i in range(2, n):
+    for j in range(i * 2, n, i):
+        a[j] = False
+
+print(*[i for i in range(2, n) if a[i]])
+
 #
+for i in range(2, int(input())):
+    for j in range(2, 1 + i // 2): # i // 2 значительно ускоряет процесс
+        if i % j == 0:
+            break
+    else:
+        print(i, end=' ')
+
+#
+n = int(input())
+sieve = [0, 0] + [1] * (n - 2)
+for i in range(2, n):
+    if sieve[i]:
+        for j in range(i * i, n, i):
+            sieve[j] = 0
+print(*(i for i, e in enumerate(sieve) if e))
 
 
 

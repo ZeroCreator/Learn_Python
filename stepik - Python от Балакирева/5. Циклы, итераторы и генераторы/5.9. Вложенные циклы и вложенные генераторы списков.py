@@ -128,3 +128,20 @@ A=[[row[i] for row in lst_in] for i in range(len(lst_in[0]))]
 [print(*a) for a in A]
 
 
+# Подвиг 2. Вводится список целых чисел в строку через пробел. С помощью list comprehension сформировать из них
+# двумерный список lst размером N x N (квадратную таблицу чисел). Гарантируется, что из набора введенных чисел
+# можно сформировать квадратную матрицу (таблицу). Результат отобразить в виде списка командой: print(lst)
+a = list(map(int, input().split()))
+N = int(len(a)**0.5)
+lst = list([[a[N * i + j] for j in range(N)] for i in range(N)])
+print(lst)
+
+#
+lst_in = list(map(int, input().split()))
+N = int(len(lst_in) ** 0.5)
+lst = [lst_in[i:i+N] for i in range(0, len(lst_in), N)]
+print(lst)
+
+
+
+
