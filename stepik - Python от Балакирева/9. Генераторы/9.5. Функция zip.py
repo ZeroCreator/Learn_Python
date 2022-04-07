@@ -84,5 +84,77 @@ a = zip(*[iter(s)] * 3)
 for i in a:
     print(*i)
 
+# Подвиг 3. Вводится таблица целых чисел. Необходимо сначала эту таблицу представить двумерным списком чисел, а затем,
+# с помощью функции zip выполнить транспонирование этой таблицы (то есть, строки заменить на соответствующие столбцы).
+# Результат вывести на экран в виде таблицы чисел (числа в строках следуют через пробел).
+import sys
 
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+lst_in = ['1 2 3 4', '5 6 7 8', '9 8 7 6']
+lst = list([i.split() for i in lst_in])
+for i in range(len(lst)):
+    for j in range(len(lst[i])):
+        lst[i][j] = int(lst[i][j])
+
+lst1 = zip(*[i for i in lst])
+for i in lst1:
+    print(*i)
+
+#
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+lst = [list(map(int, i.split())) for i in lst_in]
+
+for i in zip(*lst):
+    print(*i)
+
+
+# Подвиг 2. Вводится неравномерная таблица целых чисел. С помощью функции zip выровнить эту таблицу, приведя ее к
+# прямоугольному виду, отбросив выходящие элементы. Вывести результат на экран в виде такой же таблицы чисел.
+import sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+lst_in = ['1 2 3 4 5 6', '3 4 5 6', '7 8 9', '9 7 5 3 2']
+lst = [list(map(int, i.split())) for i in lst_in]
+t = zip(*lst)
+s = zip(*t)
+for i in s:
+    print(*i)
+
+#
+list(map(print, *zip(*map(str.split, lst_in))))
+
+#
+for i in zip(*zip(*lst_in)):
+    print(*i, sep='')
+
+#
+z = zip(*zip(*lst_in))
+for i in z:
+    print(''.join(list(i)))
+
+#
+[print(*c, sep='') for c in zip(*zip(*lst_in))]
+
+#
+mport sys
+
+# считывание списка из входного потока
+lst_in = list(map(str.strip, sys.stdin.readlines()))
+
+# здесь продолжайте программу (используйте список строк lst_in)
+
+lst_in = [list(map(int, x.split())) for x in lst_in]
+# скармливаем zip нашу распакованную матрицу
+res = [list(row) for row in zip(*lst_in)]
+# из-за того, что в процессе матрицу повернуло, траснпонируем ее еще раз
+for row in zip(*res):
+    print(*row)
 
