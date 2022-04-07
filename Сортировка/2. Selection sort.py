@@ -10,7 +10,24 @@ def selection_sort(nums):
                 lowest_value_index = j
         # Поменять местами значения самого низкого несортированного элемента с первым несортированным
         nums[i], nums[lowest_value_index] = nums[lowest_value_index], nums[i]
+
+
 # Проверяем, что это работает
 random_list_of_nums = [12, 8, 3, 20, 11]
 selection_sort(random_list_of_nums)
-print(random_list_of_nums)  
+print(random_list_of_nums)
+
+
+###
+def selection_sort(nums: list):
+    for i in range(len(nums)):
+        lowest_value_index = i
+        for j in range(i + 1, len(nums)):
+            if nums[j] < nums[lowest_value_index]:
+                lowest_value_index = j
+        nums[i], nums[lowest_value_index] = nums[lowest_value_index], nums[i]
+
+
+random_list_of_nums = list(map(int, input().split()))
+selection_sort(random_list_of_nums)
+print(*random_list_of_nums)
