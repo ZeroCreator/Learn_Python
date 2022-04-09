@@ -1,18 +1,32 @@
 # методы класса, параметр self, конструктор и деструктор.
 
 class Point:
+    color = "red"
+    circle = 2
     x = 1; y = 1
-    def setCoords(self, x, y):
+
+    def set_coords(self, x, y):
+        print("вызов метода set_coords")
         self.x = x
         self.y = y
 
+    def get_coords(self):
+        return (self.x, self.y)
+
 pt = Point()
-# pt.x = 5
-# pt.y = 10
-# pt.setCoords(5, 10)
-Point.setCoords(pt, 5, 10)
+# Point.set_coords() # Ошибка
+pt.set_coords(1, 2)
 print(pt.__dict__)
 
+pt2 = Point()
+pt2.x = 5
+pt2.y = 10
+pt2.set_coords(5, 10)
+Point.set_coords(pt2, 5, 10)
+print(pt.get_coords())
+print(pt2.__dict__)
+f = getattr(pt, "get_coords")
+print(f())
 
 # Метод __init__() - инициализатор (конструктор - это метод __new__()), а метод __del__() - финализатор.
 print("Метод __init__() - инициализатор")
