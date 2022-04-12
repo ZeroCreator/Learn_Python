@@ -25,7 +25,7 @@ class Point:
 # pt = Point(1, 2)
 # print(pt.__x, pt.__y)
 
-# Для изменения знаяений объектов класса методы:
+# Для изменения значений объектов класса методы:
     def __checkValue(x):
         return isinstance(x, (int, float))
 
