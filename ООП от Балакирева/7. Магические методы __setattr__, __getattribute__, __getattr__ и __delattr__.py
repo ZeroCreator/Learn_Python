@@ -29,10 +29,15 @@ class Point:
             raise AttributeError("недопустимое имя атрибута")
         else:
             object.__setattr__(self, key, value)
+            #self.__dict__[key] = value # будет выполняться по рекурсии
 
-        object.__setattr__(self, key, value)
+    def __getattr__(self, item):
+        #print("__gettatr__: " + item)
+        return False
 
-
+    def __delattr__(self, item):
+        print("__delattr__: " + item)
+        object.__delattr__(self, item)
 
 pt1 = Point(1, 2)
 pt2 = Point(10, 20)
@@ -42,7 +47,11 @@ print(pt1.__dict__)
 print(Point.__dict__)
 a = pt1.y
 print(a)
-pt1.z = 5
+#pt1.z = 5
+print(pt1.yy)
+print(pt1.MAX_COORD)
+del pt1.x
+print(pt1.__dict__)
 # __setattr(self, key, value)__ - автоматически вызывается при изменении key класса;
 # __getattribute__(self, item) - автоматически вызывается при получении свойства класса с именем item;
 # __getattr__(self, item) - автоматически вызывается при получении несуществующего свойства item класса;
