@@ -1,5 +1,6 @@
 # Сортировка вставками (Insertion sort)
 def insertion_sort(nums):
+    """сортировка списка nums вставками"""
     # Начнем со второго элемента, так как мы предполагаем, что первый элемент отсортирован
     for i in range(1, len(nums)):
         item_to_insert = nums[i]
