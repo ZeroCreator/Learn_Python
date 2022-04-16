@@ -6,21 +6,22 @@ def matroshka(n):
         print("Матрешечка")
     else:
         print("Верх матрешки n=", n)
-        matroshka(n-1)
+        matroshka(n - 1)
         print("Низ матрешки n=", n)
 
 
 matroshka(5)
 
-
 # Глубина рекурсии - количество вызовов функции
 # Факториал
 print("# Факториал")
-def f(n:int):
+
+
+def f(n: int):
     assert n >= 0, "Факториал отрицательного на определен"
     if n == 0:
         return 1
-    return f(n-1)*n
+    return f(n - 1) * n
 
 
 print(f(5))
@@ -112,7 +113,7 @@ if __name__ == '__main__':
 
 # вариант 3
 def h(n, x, y):
-    if n >0:
+    if n > 0:
         tmp = 6 - x-y
         h(n-1, x, tmp)
         print(n, x, y)
@@ -120,3 +121,15 @@ def h(n, x, y):
 n = int(input())
 
 h(n, 1, 3)
+
+# Нахождение длины списка при помощи рекурсии
+print("Нахождение длины списка при помощи рекурсии")
+def length(lst):
+    if not lst:
+        return 0
+    return 1 + length(lst[1:])
+
+a = [1, 2, 3]
+
+print("Длина списка равна: ")
+print(length(a))
