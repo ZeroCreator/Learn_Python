@@ -1,4 +1,4 @@
-# Сортировка слиянием (Merge sort).
+#Сортировка слиянием (Merge sort).
 def merge(left_list, right_list):
     sorted_list = []
     left_list_index = right_list_index = 0
@@ -39,3 +39,49 @@ def merge_sort(nums):
 random_list_of_nums = [120, 45, 68, 250, 176]
 random_list_of_nums = merge_sort(random_list_of_nums)
 print(random_list_of_nums)
+
+
+# # Слияние двух упорядоченных массивов
+# print("Слияние двух упорядоченных массивов")
+# def merge(A:list, B:list):
+#     C = [0]*(len(A) + len(B))
+#     i = k = n = 0
+#     while i < len(A) and k < len(B):
+#         if A[i] <= B[k]:
+#             C[n] = A[i]
+#             i += 1
+#             n += 1
+#         else:
+#             C[n] = B[k]
+#             k += 1
+#             n += 1
+#     while i < len(A):
+#         C[n] = A[i]
+#         i += 1
+#         n += 1
+#     while k < len(B):
+#         C[n] = B[k]
+#         k += 1
+#         n += 1
+#
+#     return C
+#
+#
+# # Рекурентная функция
+# print("Рекурентная функция")
+# def merg_sort(A):
+#     if len(A) <= 1:
+#         return
+#     middle = len(A)//2
+#     L = [A[i] for i in range(0, middle)]
+#     R = [A[i] for i in range(middle, len(A))]
+#     merge_sort(L)
+#     merge_sort(R)
+#     C = merge(L, R)
+#
+#     for i in range(len(A)):
+#         A[i] = C[i]
+#
+# B = [5, 2, 7, 3, 1]
+# merg_sort(B)
+# print(*B)
