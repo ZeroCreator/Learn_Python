@@ -148,7 +148,7 @@ def fact(n):
 
 print(fact(5))
 
-
+"""
 def count_sort(a):
     p = [] * 10
     for i in a:
@@ -159,3 +159,14 @@ def count_sort(a):
 
 a = [1, 2, 8, 5, 6]
 count_sort(a)
+"""
+
+def palindrom(str):
+    if len(str) <= 1:
+        return True
+    if str[0] != str[-1]:
+        return False
+    return palindrom(str[1:-1])
+
+p = "asdfghjkjhgfdda"
+print(palindrom(p))
