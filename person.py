@@ -23,6 +23,20 @@ class Manager(Person):      # Определение подкласса клас
     def someThingElse(self):
         pass
 
+# Объединение объектов в составной объект
+
+class Department:
+    def __init__(self, *args):
+        self.members = list(args)
+    def addMember(self, person):
+        self.members.append(person)
+    def giveRaises(self, percent):
+        for person in self.members:
+            person.giveRaise(percent)
+    def showAll(self):
+        for person in self.members:
+            print(person)
+
 #if __name__ == "__maine__": # только когда файл запускается для тестирования
     # реализация самотестирования
 bob = Person("Bob Smith")
@@ -54,3 +68,10 @@ tom.giveRaise() # Адаптированная версия
 tom.someThingElse() # Дополнительный метод
 print(tom) # Унаследованный метод перегрузки
 """
+
+# Объединение объектов в составной объект
+
+development = Department(bob, sue) # Встраивание объектов в составной объект
+development.addMember(tom)
+development.giveRaises(.10) # Вызов метода giveRaise вложенных объектов
+development.showAll() # Вызов метода __str__ вложенных объектов
