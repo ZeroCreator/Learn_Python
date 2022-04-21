@@ -36,8 +36,9 @@ class Clock:
 
 c1 = Clock(1000)
 c2 = Clock(2000)
+c3 = Clock(3000)
 #c1.seconds = c1.seconds + 100
 #c1 = c1 + 100
 #print(c1.get_time())
-c3 = c1 + c2
-print(c3.get_time())
+c4 = c1 + c2 + c3
+print(c4.get_time())
