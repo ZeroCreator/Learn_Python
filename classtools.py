@@ -27,6 +27,9 @@ if __name__ == "__main__":
             self.attr2 = TopTest.count + 1
             TopTest.count += 2
 
+        # def gatherAttrs(self):  # Replaces method in AttrDisplay!
+        #     return "Spam"
+
 
     class SubTest(TopTest):
         pass
