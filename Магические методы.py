@@ -113,3 +113,35 @@ class Squares:
 
 for i in Squares(1, 5):
     print(i, end=" ")
+
+
+X = Squares(1, 5) # Выполнение итераций вручную: эти действия выполняет
+# инструкция цикла
+I = iter(X) # iter вызовет __iter__
+print(next(I)) # next вызовет __next__
+#1
+print(next(I))
+#4
+print(next(I))
+print(next(I))
+print(next(I))
+# next(I) # Исключение можно перехватить с помощью инструкции try
+# StopIteration
+
+X = Squares(1, 5)
+print([n for n in X]) # Получить все элементы
+#[1, 4, 9, 16, 25]
+print([n for n in X]) # Теперь объект пуст
+#[]
+print([n for n in Squares(1, 5)]) # Создать новый объект итератора
+#[1, 4, 9, 16, 25]
+print(list(Squares(1, 3)))
+#[1, 4, 9]
+
+def gsquares(start, stop):
+    for i in range(start, stop+1):
+        yield i ** 2
+
+for i in gsquares(1, 5): # или: (x ** 2 for x in range(1, 5))
+    print(i, end=" ")
+
