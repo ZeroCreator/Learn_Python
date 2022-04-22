@@ -84,7 +84,7 @@ for item in X: # Циклы for вызывают __getitem__
 
 
 print("p" in X) # Во всех этих случаях вызывается __getitem__
-True
+#True
 print([c for c in X]) # Генератор списков
 #["S", "p", "a", "m"]
 print(list(map(str.upper, X))) # Функция map (в версии 3.0
@@ -144,4 +144,40 @@ def gsquares(start, stop):
 
 for i in gsquares(1, 5): # или: (x ** 2 for x in range(1, 5))
     print(i, end=" ")
+
+# Несколько итераторов в одном объекте
+print("Несколько итераторов в одном объекте")
+
+
+class SkipIterator:
+    def __init__(self, wrapped):
+        self.wrapped = wrapped  # Информация о состоянии
+        self.offset = 0
+
+    def next(self):
+        if self.offset >= len(self.wrapped):  # Завершить итерации
+            raise StopIteration
+        else:
+            item = self.wrapped[self.offset]  # Иначе перешагнуть и вернуть
+            self.offset += 2
+            return item
+
+
+class SkipObject:
+    def __init__(self, wrapped):  # Сохранить используемый элемент
+        self.wrapped = wrapped
+
+    def __iter__(self):
+        return SkipIterator(self.wrapped)  # Каждый раз новый итератор
+
+
+if __name__ == "__main__":
+    alpha = "abcdef"
+    skipper = SkipObject(alpha)  # Создать объект-контейнер
+    I = iter(skipper)  # Создать итератор для него
+    print(next(I), next(I), next(I))  # Обойти элементы 0, 2, 4
+    for x in skipper:  # for вызывает __iter__ автоматически
+        for y in skipper:  # Вложенные циклы for также вызывают __iter__
+            print(x + y, end=' ')  # Каждый итератор помнит свое состояние, смещение
+
 
