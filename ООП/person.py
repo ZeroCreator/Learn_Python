@@ -1,4 +1,4 @@
-from classtools import AttrDisplay # Импортирует обобщенный инструмент
+from ООП.classtools import AttrDisplay # Импортирует обобщенный инструмент
 
 class Person(AttrDisplay):
     """
