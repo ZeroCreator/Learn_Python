@@ -61,3 +61,23 @@ p2 = Point2D(10, 20)
 t1 = timeit.timeit(p.calc)
 t2 = timeit.timeit(p2.calc)
 print(t1, t2)
+
+class D:
+    __slots__ = ['a', 'b', '__dict__']  # Добавить __dict__ в слоты
+    c = 3
+    def __init__(self):
+        self.d = 4
+        self.b = 2
+
+X = D()
+print(X.d)
+print( X.__dict__)
+print(X.__slots__)
+print(X.c)
+X.a = 1
+print(getattr(X, 'a',), getattr(X, 'c'), getattr(X, 'd'))
+
+#for attr in list(X.__dict__) + X.__slots__:
+for attr in list(getattr(X,'__dict__', [])) + getattr(X, '__slots__', []):
+        print(attr, '= > ', getattr(X, attr))
+    #print(attr, '= > ', getattr(X, attr))
