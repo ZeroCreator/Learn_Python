@@ -10,7 +10,8 @@ class Super:
         pass
 
 
-class Sub(Super, ListInstance): # Подмешать методы ham и __str__
+# class Sub(Super, ListInstance): # Подмешать методы ham и __str__
+class Sub(Super, ListTree):
     def __init__(self): # Инструментальные классы имеют доступ к self
         Super.__init__(self)
         self.data2 = "eggs" # Добавить атрибуты экземпляра
