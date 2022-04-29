@@ -13,5 +13,6 @@ def decode(text, step):
 
 
 if __name__ == "__main__":
-    print(encode("Отче наш", 6))
-    print(decode("Фшэл&ужю", 6))
+    r = encode("Отче наш", 6)
+    print(r)
+    print(decode(r, 6))
